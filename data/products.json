@@ -1,0 +1,75 @@
+[
+  {
+    "id": "arsenall-01",
+    "slug": "arsenall-01",
+    "name": "زي أرسنال 2026 — Arsenall",
+    "type": "ملابس رياضية",
+    "categoryId": "jerseys",
+    "description": "زي أرسنال الرسمي لموسم 2026 — جودة أصلية من Arsenall.",
+    "price": 30000,
+    "image": "products/arsenall/01.webp",
+    "images": [
+      "products/arsenall/01.webp",
+      "products/arsenall/02.webp",
+      "products/arsenall/03.webp"
+    ],
+    "colors": [],
+    "colorsEnabled": false,
+    "specs": {},
+    "faqs": [],
+    "isNew": true,
+    "isFeatured": true,
+    "stockMeters": 55,
+    "createdAt": "2026-10-10T00:00:00.000Z",
+    "sourceUrl": "https://www.instagram.com/a.arsenall/"
+  },
+  {
+    "id": "arsenall-02",
+    "slug": "arsenall-02",
+    "name": "تيشيرت أرسنال — Arsenall",
+    "type": "ملابس رياضية",
+    "categoryId": "jerseys",
+    "description": "تيشيرت أرسنال أصلي — قطن عالي الجودة وطباعة احترافية.",
+    "price": 20000,
+    "image": "products/arsenall/04.webp",
+    "images": [
+      "products/arsenall/04.webp",
+      "products/arsenall/05.webp",
+      "products/arsenall/06.webp"
+    ],
+    "colors": [],
+    "colorsEnabled": false,
+    "specs": {},
+    "faqs": [],
+    "isNew": true,
+    "isFeatured": true,
+    "stockMeters": 80,
+    "createdAt": "2026-10-10T00:00:00.000Z",
+    "sourceUrl": "https://www.instagram.com/a.arsenall/"
+  },
+  {
+    "id": "arsenall-03",
+    "slug": "arsenall-03",
+    "name": "شورت أرسنال — Arsenall",
+    "type": "ملابس رياضية",
+    "categoryId": "jerseys",
+    "description": "شورت أرسنال الرسمي — مريح وعملي للرياضة والمشاهدة.",
+    "price": 15000,
+    "image": "products/arsenall/07.webp",
+    "images": [
+      "products/arsenall/07.webp",
+      "products/arsenall/08.webp",
+      "products/arsenall/09.webp",
+      "products/arsenall/10.webp"
+    ],
+    "colors": [],
+    "colorsEnabled": false,
+    "specs": {},
+    "faqs": [],
+    "isNew": true,
+    "isFeatured": false,
+    "stockMeters": 65,
+    "createdAt": "2026-10-10T00:00:00.000Z",
+    "sourceUrl": "https://www.instagram.com/a.arsenall/"
+  }
+]

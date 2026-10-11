@@ -1,0 +1,26 @@
+[
+  {
+    "id": "jerseys",
+    "slug": "jerseys",
+    "name": "أزياء",
+    "description": "أزياء رسمية للأندية",
+    "image": "products/arsenall/01.webp",
+    "accent": "#b71c1c"
+  },
+  {
+    "id": "tshirts",
+    "slug": "tshirts",
+    "name": "تيشيرتات",
+    "description": "تيشيرتات فرق مميزة",
+    "image": "products/arsenall/04.webp",
+    "accent": "#fdd835"
+  },
+  {
+    "id": "shorts",
+    "slug": "shorts",
+    "name": "شورتات",
+    "description": "شورتات رياضية مريحة",
+    "image": "products/arsenall/07.webp",
+    "accent": "#7f0000"
+  }
+]
