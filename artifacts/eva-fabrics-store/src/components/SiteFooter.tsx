@@ -14,7 +14,7 @@ interface SiteFooterProps {
 
 const infoItems = [
   { path: '/about', label: 'foot.nav.about' },
-  { path: '/fabric-guide', label: 'foot.nav.guide' },
+  { path: '/size-guide', label: 'foot.nav.guide' },
   { path: '/order-tracking', label: 'foot.nav.tracking' },
   { path: '/contact', label: 'foot.nav.contact' },
   { path: '/policies', label: 'foot.nav.policies' },
@@ -40,8 +40,8 @@ export function SiteFooter({ routes, categories }: SiteFooterProps) {
       </div>
       <div className="container-eva footer-grid">
         <div className="footer-col">
-          <h2>{t('foot.colFabrics')}</h2>
-          <Link href="/catalog">{t('foot.allFabrics')}</Link>
+          <h2>{t('foot.colProducts')}</h2>
+          <Link href="/catalog">{t('foot.allProducts')}</Link>
           {categories.slice(0, 5).map((category) => <Link key={category.id} href={`/catalog?category=${encodeURIComponent(category.id)}`}>{category.name}</Link>)}
         </div>
         <div className="footer-col">

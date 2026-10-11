@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.eva-store.workers.dev/sitemap.xml
+Sitemap: https://ahmad-full-stuck.github.io/arsenall-store/sitemap.xml

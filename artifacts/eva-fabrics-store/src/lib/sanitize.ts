@@ -42,7 +42,7 @@ const sanitizeColor = (value: unknown, index: number, stockMeters: number): Prod
 
 const defaultColor = (stockMeters: number): ProductColor => ({
   id: 'default',
-  name: 'اللون الافتراضي',
+  name: 'اللون الأساسي',
   hex: '#8e6e7d',
   available: true,
   stockMeters,
@@ -119,9 +119,9 @@ export const sanitizeCategory = (value: unknown, index: number): Category | null
     id,
     slug: text(value.slug) || id,
     name,
-    description: text(value.description, 'تشكيلة من الأقمشة المختارة'),
+    description: text(value.description, 'تشكيلة Arsenall المختارة'),
     image: text(value.image),
-    accent: text(value.accent, '#a34163'),
+    accent: text(value.accent, '#c2185b'),
   }
 }
 

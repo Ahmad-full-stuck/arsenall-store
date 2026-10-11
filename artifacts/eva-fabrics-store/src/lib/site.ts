@@ -1,6 +1,6 @@
 const adminContent = (): Record<string, string> => {
   try {
-    const raw = window.localStorage.getItem('eva-admin-content')
+    const raw = window.localStorage.getItem('arsenall-admin-content')
     if (!raw) return {}
     const parsed: unknown = JSON.parse(raw)
     return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? (parsed as Record<string, string>) : {}
@@ -10,7 +10,7 @@ const adminContent = (): Record<string, string> => {
 }
 
 const rawWhatsApp = import.meta.env.VITE_WHATSAPP_NUMBER || '9647727282001'
-const rawInstagram = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/x__illc/'
+const rawInstagram = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/a.arsenall/'
 const apiBase = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '')
 
 const digits = (value: string): string => value.replace(/[^0-9]/g, '')

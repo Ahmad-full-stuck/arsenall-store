@@ -48,7 +48,7 @@ export function FavoritesPage({ products, categories, wishlist, onWish, onAdd }:
             <p>{t('fav.emptyHint')}</p>
             <div className="empty-actions">
               <Link href="/catalog" className="button button-primary">{t('fav.browse')} <ArrowLeft size={16} /></Link>
-              <Link href="/fabric-guide" className="button button-outline">{t('fav.guide')} <ArrowLeft size={16} /></Link>
+              <Link href="/size-guide" className="button button-outline">{t('fav.guide')} <ArrowLeft size={16} /></Link>
             </div>
             <div className="local-orders">
               <span>{t('fav.suggested')}</span>

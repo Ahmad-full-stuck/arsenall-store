@@ -1,7 +1,37 @@
 ﻿import type { StringEntry } from '@/lib/i18n'
 
 /** Core UI strings owned by the i18n foundation (App shell, helpers, discovery). */
-export const coreStrings: Record<string, StringEntry> = {
+export const legacyAliases: Record<string, StringEntry> = {
+  'home.showAllProducts': { ar: 'عرض كل المنتجات', en: 'Show all products' },
+  'home.stats.productsLabel': { ar: 'منتج متاح', en: 'Available products' },
+  'home.stats.productsTrend': { ar: 'تشكيلة تتجدد', en: 'A range that keeps growing' },
+  'header.nav.allProducts': { ar: 'كل المنتجات', en: 'All products' },
+  'foot.colProducts': { ar: 'المنتجات', en: 'Products' },
+  'foot.allProducts': { ar: 'كل المنتجات', en: 'All products' },
+  'cat.breadcrumbProducts': { ar: 'المنتجات', en: 'Products' },
+  'cat.allProductsTitle': { ar: 'كل المنتجات', en: 'All products' },
+  'cat.countProducts': { ar: '{count} منتج', en: '{count} products' },
+  'cat.filterProducts': { ar: 'تصفية المنتجات', en: 'Filter products' },
+  'cat.productType': { ar: 'نوع المنتج', en: 'Product type' },
+  'cat.showAllProducts': { ar: 'عرض كل المنتجات', en: 'Show all products' },
+  'pd.breadcrumbProducts': { ar: 'المنتجات', en: 'Products' },
+  'pd.backToProducts': { ar: 'العودة إلى المنتجات', en: 'Back to products' },
+  'pd.metersInputAria': { ar: 'إدخال الكمية', en: 'Quantity input' },
+  'co.backToProducts': { ar: 'العودة إلى المنتجات', en: 'Back to products' },
+  'guide.thProduct': { ar: 'المنتج المقترح', en: 'Suggested product' },
+  'guide.tip1Product': { ar: 'منتج مريح للاستخدام اليومي', en: 'Comfortable for daily use' },
+  'guide.tip2Product': { ar: 'جودة عالية ومتانة', en: 'High quality and durability' },
+  'guide.tip3Product': { ar: 'مناسب للرياضة والحركة', en: 'Suitable for sports and movement' },
+  'guide.tip4Product': { ar: 'سهل العناية والغسيل', en: 'Easy to care and wash' },
+  'guide.tip5Product': { ar: 'تصميم عصري وأنيق', en: 'Modern and elegant design' },
+  'guide.tip6Product': { ar: 'سعر مناسب مقابل الجودة', en: 'Good value for quality' },
+  'core.piecesHalf': { ar: 'قطعة واحدة', en: 'one piece' },
+  'core.piecesWord': { ar: 'قطعة', en: 'piece' },
+  'core.piecesShortHalf': { ar: 'قطعة', en: 'pc' },
+  'core.piecesShortUnit': { ar: 'قطعة', en: 'pc' },
+}
+
+export const coreStrings: Record<string, StringEntry> = Object.assign({}, legacyAliases, {
   'core.skipLink': { ar: 'تخطي إلى المحتوى', en: 'Skip to content' },
   'core.noticeUnavailable': { ar: 'هذا المنتج غير متوفر حالياً', en: 'This product is currently unavailable' },
   'core.noticeCapped': { ar: 'أضيفت الكمية المتاحة فقط من «{name}»', en: 'Only the available quantity of “{name}” was added' },
@@ -30,14 +60,14 @@ export const coreStrings: Record<string, StringEntry> = {
   'core.piecesWord': { ar: 'متر', en: 'piece' },
   'core.piecesShortHalf': { ar: 'قطعة واحدة', en: 'half m' },
   'core.piecesShortUnit': { ar: 'م', en: 'm' },
-  'disc.suitableDailyDresses': { ar: 'مناسب للفساتين اليومية', en: 'Suitable for everyday dresses' },
-  'disc.lightComfortable': { ar: 'خامة خفيفة ومريحة', en: 'Light and comfortable product' },
+  'disc.suitableDailyDresses': { ar: 'مناسب للملابس اليومية', en: 'Suitable for everyday dresses' },
+  'disc.lightComfortable': { ar: 'منتج خفيفة ومريحة', en: 'Light and comfortable product' },
   'disc.notSheer': { ar: 'غير شفافة', en: 'Not sheer' },
   'disc.stretchyEasySew': { ar: 'مرنة وسهلة التفصيل', en: 'Stretchy and easy to sew' },
   'disc.heavyForDaily': { ar: 'ثقيلة قليلاً للاستخدام اليومي', en: 'A bit heavy for daily wear' },
   'disc.eveningShine': { ar: 'لمعة مناسبة للسهرة', en: 'Evening-appropriate shine' },
   'disc.elegantDrape': { ar: 'انسيابية أنيقة', en: 'Elegant drape' },
-  'disc.mentionedDresses': { ar: 'مذكور للفساتين', en: 'Mentioned for dresses' },
+  'disc.mentionedDresses': { ar: 'مذكور للملابس', en: 'Mentioned for dresses' },
   'disc.comfortableCoverage': { ar: 'تغطية مريحة', en: 'Comfortable coverage' },
   'disc.matteNoShine': { ar: 'مطفي بدون لمعة', en: 'Matte with no shine' },
   'disc.mentionedAbayas': { ar: 'مذكور للعباءات', en: 'Mentioned for abayas' },
@@ -61,3 +91,4 @@ export const coreStrings: Record<string, StringEntry> = {
   'disc.isStretchy': { ar: 'رياضية', en: 'Stretchy' },
   'disc.notStretchy': { ar: 'غير رياضية', en: 'Not stretchy' },
 }
+)

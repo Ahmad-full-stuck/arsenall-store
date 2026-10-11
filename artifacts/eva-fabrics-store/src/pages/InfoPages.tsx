@@ -367,9 +367,9 @@ export function AboutPage() {
             </div>
           </div>
           <div className="about-collage">
-            <SmartImage src="products/dantylfrnsyambrwdry/01.jpg" alt={t('about.imgAlt1')} sizes="(max-width: 820px) 46vw, 24vw" />
-            <SmartImage src="products/lmshalbwklywnsyjalankwra/01.jpg" alt={t('about.imgAlt2')} sizes="(max-width: 820px) 46vw, 24vw" />
-            <span>EVA<br /><strong>FABRICS</strong></span>
+            <SmartImage src="products/arsenall/02.webp" alt={t('about.imgAlt1')} sizes="(max-width: 820px) 46vw, 24vw" />
+            <SmartImage src="products/arsenall/03.webp" alt={t('about.imgAlt2')} sizes="(max-width: 820px) 46vw, 24vw" />
+            <span>Arsenall</span>
           </div>
         </section>
 
@@ -379,7 +379,7 @@ export function AboutPage() {
               <span className="eyebrow">{t('about.storyEyebrow')}</span>
               <h2 id="about-story-title">{t('about.storyTitle')}</h2>
             </div>
-            <Link href="/fabric-guide" className="underlined-link">{t('about.storyLink')} <ArrowLeft size={15} /></Link>
+            <Link href="/size-guide" className="underlined-link">{t('about.storyLink')} <ArrowLeft size={15} /></Link>
           </div>
           <div className="story-copy-grid">
             <p>{t('about.storyP1')}</p>
@@ -517,12 +517,12 @@ const extraGuideQuestions = (t: (key: string) => string): ProductFaq[] => [
 ]
 
 const fabricTips = [
-  { use: 'guide.tip1Use', fabric: 'guide.tip1Fabric', weight: 'guide.tip1Weight', tip: 'guide.tip1Tip' },
-  { use: 'guide.tip2Use', fabric: 'guide.tip2Fabric', weight: 'guide.tip2Weight', tip: 'guide.tip2Tip' },
-  { use: 'guide.tip3Use', fabric: 'guide.tip3Fabric', weight: 'guide.tip3Weight', tip: 'guide.tip3Tip' },
-  { use: 'guide.tip4Use', fabric: 'guide.tip4Fabric', weight: 'guide.tip4Weight', tip: 'guide.tip4Tip' },
-  { use: 'guide.tip5Use', fabric: 'guide.tip5Fabric', weight: 'guide.tip5Weight', tip: 'guide.tip5Tip' },
-  { use: 'guide.tip6Use', fabric: 'guide.tip6Fabric', weight: 'guide.tip6Weight', tip: 'guide.tip6Tip' },
+  { use: 'guide.tip1Use', fabric: 'guide.tip1Product', weight: 'guide.tip1Weight', tip: 'guide.tip1Tip' },
+  { use: 'guide.tip2Use', fabric: 'guide.tip2Product', weight: 'guide.tip2Weight', tip: 'guide.tip2Tip' },
+  { use: 'guide.tip3Use', fabric: 'guide.tip3Product', weight: 'guide.tip3Weight', tip: 'guide.tip3Tip' },
+  { use: 'guide.tip4Use', fabric: 'guide.tip4Product', weight: 'guide.tip4Weight', tip: 'guide.tip4Tip' },
+  { use: 'guide.tip5Use', fabric: 'guide.tip5Product', weight: 'guide.tip5Weight', tip: 'guide.tip5Tip' },
+  { use: 'guide.tip6Use', fabric: 'guide.tip6Product', weight: 'guide.tip6Weight', tip: 'guide.tip6Tip' },
 ]
 
 const qualityChecks = [
@@ -534,7 +534,7 @@ const qualityChecks = [
   'guide.check6',
 ]
 
-export function FabricGuidePage() {
+export function SizeGuidePage() {
   const { t, lang } = useT()
   const questions: ProductFaq[] = [...(lang === 'en' ? guideFaqsEn : guideQuestions), ...extraGuideQuestions(t)]
   const quickAnswers = lang === 'en' ? quickGuideAnswersEn : quickGuideAnswers
@@ -634,7 +634,7 @@ export function FabricGuidePage() {
               <thead>
                 <tr>
                   <th scope="col">{t('guide.thUse')}</th>
-                  <th scope="col">{t('guide.thFabric')}</th>
+                  <th scope="col">{t('guide.thProduct')}</th>
                   <th scope="col">{t('guide.thWeight')}</th>
                   <th scope="col">{t('guide.thTip')}</th>
                 </tr>
@@ -774,7 +774,7 @@ export function ContactPage() {
               <Link href="/order-tracking" aria-label={t('contact.method2Aria')}>
                 <PackageCheck size={19} /><span><strong>{t('contact.method2Title')}</strong><small>{t('contact.method2Text')}</small></span><ArrowLeft size={15} />
               </Link>
-              <Link href="/fabric-guide" aria-label={t('contact.method3Aria')}>
+              <Link href="/size-guide" aria-label={t('contact.method3Aria')}>
                 <Ruler size={19} /><span><strong>{t('contact.method3Title')}</strong><small>{t('contact.method3Text')}</small></span><ArrowLeft size={15} />
               </Link>
             </div>

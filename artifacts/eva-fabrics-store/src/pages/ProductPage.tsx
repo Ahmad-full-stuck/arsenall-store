@@ -148,7 +148,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
   }
 
   return <main className="container-eva product-page">
-    <div className="breadcrumbs"><Link href="/">{t('pd.breadcrumbHome')}</Link><span>›</span><Link href="/catalog">{t('pd.breadcrumbFabrics')}</Link><span>›</span><span>{product.name}</span></div>
+    <div className="breadcrumbs"><Link href="/">{t('pd.breadcrumbHome')}</Link><span>›</span><Link href="/catalog">{t('pd.breadcrumbProducts')}</Link><span>›</span><span>{product.name}</span></div>
     <div className="product-detail-layout">
       <section className="product-gallery" aria-label={t('pd.galleryAria').replace('{name}', product.name)}>
         <div
@@ -203,7 +203,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
           const next = Number(event.target.value)
           if (!Number.isFinite(next)) return
           setLength(Math.min(Math.max(0.5, next), Math.max(0.5, maxLength)))
-        }} aria-label={t('pd.metersInputAria')} /><em>{t('pd.unitMeters')}</em></label>
+        }} aria-label={t('pd.quantityInputAria')} /><em>{t('pd.unitMeters')}</em></label>
         <div className="line-total"><span>{t('pd.lineTotal').replace('{meters}', metersLabel(length)).replace('{price}', formatPrice(product.price))}</span><strong>{formatPrice(product.price * length)}</strong></div>
         <button ref={addBtnRef} type="button" className="button button-primary detail-add" onClick={add} disabled={maxLength <= 0}><ShoppingBag size={17} />{maxLength <= 0 ? t('pd.unavailable') : t('pd.addCart')}<ArrowLeft size={16} /></button>
         {justAdded && maxLength > 0 && <div className="add-confirm" role="status"><span><Check size={16} />{t('pd.addedToast').replace('{meters}', formatMeters(length)).replace('{name}', product.name)}</span><Link href="/checkout" className="button button-primary">{t('pd.checkoutNow')} <ArrowLeft size={15} /></Link></div>}
@@ -269,4 +269,4 @@ function Spec({ label, value }: { label: string; value: string }) {
   return <div><span>{label}</span><strong>{value}</strong></div>
 }
 function Accordion({ id, title, open, onToggle, children }: { id: string; title: string; open: boolean; onToggle: () => void; children: React.ReactNode }) { return <section className={`detail-accordion ${open ? 'is-open' : ''}`}><button type="button" onClick={onToggle} aria-expanded={open} aria-controls={`accordion-${id}`}><strong>{title}</strong><ChevronDown size={17} /></button>{open && <div id={`accordion-${id}`}>{children}</div>}</section> }
-function ProductMissing() { const { t } = useT(); return <main className="container-eva empty-state page-empty"><div className="empty-icon">404</div><h1>{t('pd.missingTitle')}</h1><p>{t('pd.missingText')}</p><Link href="/catalog" className="button button-primary">{t('pd.backToFabrics')} <ArrowLeft size={16} /></Link></main> }
+function ProductMissing() { const { t } = useT(); return <main className="container-eva empty-state page-empty"><div className="empty-icon">404</div><h1>{t('pd.missingTitle')}</h1><p>{t('pd.missingText')}</p><Link href="/catalog" className="button button-primary">{t('pd.backToProducts')} <ArrowLeft size={16} /></Link></main> }

@@ -15,12 +15,12 @@ interface SearchDialogProps {
 }
 
 const suggestions: { query: string; labelKey: string }[] = [
-  { query: 'قماش مطاطي', labelKey: 'search.sugStretch' },
-  { query: 'قماش أسود', labelKey: 'search.sugBlack' },
-  { query: 'مطرز', labelKey: 'search.sugEmbroidered' },
-  { query: 'ترتر', labelKey: 'search.sugSequined' },
-  { query: 'فساتين سهرة', labelKey: 'search.sugEvening' },
-  { query: 'غير مطاطي', labelKey: 'search.sugNonStretch' },
+  { query: 'منتج رياضي', labelKey: 'search.sugStretch' },
+  { query: 'منتج أسود', labelKey: 'search.sugBlack' },
+  { query: 'مميز', labelKey: 'search.sugEmbroidered' },
+  { query: 'لامع', labelKey: 'search.sugSequined' },
+  { query: 'ملابس رياضية', labelKey: 'search.sugEvening' },
+  { query: 'غير رياضي', labelKey: 'search.sugNonStretch' },
 ]
 
 export function SearchDialog({ open, onClose, products }: SearchDialogProps) {

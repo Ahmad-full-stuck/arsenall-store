@@ -57,7 +57,7 @@ const groupFields: { title: string; fields: TextField[] }[] = [
     ],
   },
   {
-    title: 'قسم دليل الأقمشة في الرئيسية',
+    title: 'قسم دليل المقاسات في الرئيسية',
     fields: [
       { key: 'guideEyebrow', label: 'العنوان الصغير' },
       { key: 'guideTitle', label: 'عنوان القسم', area: true, hint: 'افصلي السطور بـ |' },
@@ -155,7 +155,7 @@ const emptyProduct = (): Product => ({
   slug: `custom-${Date.now()}`,
   name: '',
   type: '',
-  categoryId: 'plain',
+  categoryId: 'arsenall-default',
   description: '',
   price: 0,
   image: '',
@@ -841,7 +841,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `eva-store-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.download = `arsenall-backup-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
     URL.revokeObjectURL(url)
     setToast('تم تنزيل النسخة الاحتياطية')
@@ -1049,11 +1049,11 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
                       <div className="admin-row">
                         <div className="admin-field">
                           <label>اسم المنتج *</label>
-                          <input value={editing.name} onChange={(event) => setField('name', event.target.value)} placeholder="مثال: قماش كتان" />
+                          <input value={editing.name} onChange={(event) => setField('name', event.target.value)} placeholder="مثال: منتج رياضي" />
                         </div>
                         <div className="admin-field">
                           <label>الرابط (slug)</label>
-                          <input value={editing.slug} onChange={(event) => setField('slug', event.target.value)} dir="ltr" placeholder="cotton-fabric" />
+                          <input value={editing.slug} onChange={(event) => setField('slug', event.target.value)} dir="ltr" placeholder="sport-product" />
                         </div>
                       </div>
 
@@ -1063,7 +1063,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
                           <input type="number" min={0} value={editing.price} onChange={(event) => setField('price', Number(event.target.value))} dir="ltr" />
                         </div>
                         <div className="admin-field">
-                          <label>المخزون (متر)</label>
+                          <label>المخزون (قطعة)</label>
                           <input type="number" min={0} value={editing.stockMeters} onChange={(event) => setField('stockMeters', Number(event.target.value))} dir="ltr" />
                         </div>
                       </div>

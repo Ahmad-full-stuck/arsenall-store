@@ -26,7 +26,7 @@ export function HeroSection({ products, categories }: HeroSectionProps) {
   const { t } = useT()
   const content = useSiteContent()
   const stats: HeroStat[] = [
-    { key: 'fabrics', icon: <Layers size={16} />, value: products.length, prefix: '+', suffix: '', label: t('home.stats.fabricsLabel'), trend: t('home.stats.fabricsTrend') },
+    { key: 'fabrics', icon: <Layers size={16} />, value: products.length, prefix: '+', suffix: '', label: t('home.stats.productsLabel'), trend: t('home.stats.productsTrend') },
     { key: 'categories', icon: <LayoutGrid size={16} />, value: categories.length, prefix: '+', suffix: '', label: t('home.stats.categoriesLabel'), trend: t('home.stats.categoriesTrend') },
     { key: 'delivery', icon: <Truck size={16} />, value: 18, prefix: '', suffix: '', label: t('home.stats.deliveryLabel'), trend: t('home.stats.deliveryTrend') },
     { key: 'cash', icon: <Wallet size={16} />, value: 100, prefix: '', suffix: t('home.stats.percent'), label: t('home.stats.cashLabel'), trend: t('home.stats.cashTrend') },
@@ -105,7 +105,7 @@ export function HeroSection({ products, categories }: HeroSectionProps) {
               {slides.map((slide, index) => <button key={slide.src} type="button" role="tab" aria-selected={index === activeSlide} aria-label={slide.alt} className={index === activeSlide ? 'is-active' : ''} onClick={() => { setActiveSlide(index); restart() }} />)}
             </div>
           </>}
-          <div className="hero-vertical-label" aria-hidden="true">EVA · FABRICS</div>
+          <div className="hero-vertical-label" aria-hidden="true">Arsenall</div>
         </div>
       </section>
 

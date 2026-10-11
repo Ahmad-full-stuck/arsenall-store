@@ -27,7 +27,7 @@ const primaryNav: NavItem[] = [
   { id: 'home', label: 'header.nav.home', path: '/' },
   { id: 'catalog', label: 'header.nav.catalog', path: '/catalog' },
   { id: 'favorites', label: 'header.nav.favorites', path: '/favorites' },
-  { id: 'guide', label: 'header.nav.guide', path: '/fabric-guide' },
+  { id: 'guide', label: 'header.nav.guide', path: '/size-guide' },
   { id: 'about', label: 'header.nav.about', path: '/about' },
   { id: 'contact', label: 'header.nav.contact', path: '/contact' },
 ]
@@ -40,7 +40,7 @@ const quickNav: IconNavItem[] = [
   { id: 'home', label: 'header.nav.home', path: '/', Icon: Home },
   { id: 'catalog', label: 'header.nav.catalog', path: '/catalog', Icon: Shirt },
   { id: 'favorites', label: 'header.nav.favorites', path: '/favorites', Icon: Heart },
-  { id: 'guide', label: 'header.nav.guide', path: '/fabric-guide', Icon: BookOpen },
+  { id: 'guide', label: 'header.nav.guide', path: '/size-guide', Icon: BookOpen },
   { id: 'tracking', label: 'header.nav.tracking', path: '/order-tracking', Icon: PackageSearch },
   { id: 'about', label: 'header.nav.about', path: '/about', Icon: Info },
   { id: 'contact', label: 'header.nav.contact', path: '/contact', Icon: MessageCircle },
@@ -52,7 +52,7 @@ const drawerGroups: { label: string; items: IconNavItem[] }[] = [
     label: 'header.group.shopping',
     items: [
       { id: 'home', label: 'header.nav.home', path: '/', Icon: Home },
-      { id: 'catalog', label: 'header.nav.allFabrics', path: '/catalog', Icon: Shirt },
+      { id: 'catalog', label: 'header.nav.allProducts', path: '/catalog', Icon: Shirt },
       { id: 'favorites', label: 'header.nav.favorites', path: '/favorites', Icon: Heart },
       { id: 'cart', label: 'header.nav.cart', path: '/cart', Icon: ShoppingBag },
     ],
@@ -60,7 +60,7 @@ const drawerGroups: { label: string; items: IconNavItem[] }[] = [
   {
     label: 'header.group.service',
     items: [
-      { id: 'guide', label: 'header.nav.guide', path: '/fabric-guide', Icon: BookOpen },
+      { id: 'guide', label: 'header.nav.guide', path: '/size-guide', Icon: BookOpen },
       { id: 'tracking', label: 'header.nav.tracking', path: '/order-tracking', Icon: PackageSearch },
       { id: 'contact', label: 'header.nav.contactUs', path: '/contact', Icon: MessageCircle },
       { id: 'about', label: 'header.nav.about', path: '/about', Icon: Info },

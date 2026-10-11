@@ -384,15 +384,15 @@ export function CatalogPage({ products, categories, status, wishlist, onWish, on
       <div className="breadcrumbs">
         <Link href="/">{t('cat.breadcrumbHome')}</Link>
         <span>›</span>
-        <span>{t('cat.breadcrumbFabrics')}</span>
+        <span>{t('cat.breadcrumbProducts')}</span>
         {activeCategory && <><span>›</span><span>{activeCategory.name}</span></>}
       </div>
 
       <div className="catalog-heading">
         <div>
           <span className="eyebrow">{t('cat.eyebrow')}</span>
-          <h1>{activeCategory ? activeCategory.name : t('cat.allFabricsTitle')}</h1>
-          <p>{t('cat.countFabrics').replace('{n}', String(products.length))} · {statusLabel}</p>
+          <h1>{activeCategory ? activeCategory.name : t('cat.allProductsTitle')}</h1>
+          <p>{t('cat.countProducts').replace('{n}', String(products.length))} · {statusLabel}</p>
         </div>
         <div className="catalog-sort">
           <label htmlFor="catalog-sort">{t('cat.sortBy')}</label>
@@ -443,7 +443,7 @@ export function CatalogPage({ products, categories, status, wishlist, onWish, on
       </div>
 
       <div className="catalog-layout">
-        <aside className="filter-sidebar" aria-label={t('cat.filterFabrics')}>{sidePanel}</aside>
+        <aside className="filter-sidebar" aria-label={t('cat.filterProducts')}>{sidePanel}</aside>
         <section ref={resultsRef} className="catalog-results" aria-label={t('cat.resultsAria')}>
           <form className="catalog-search" onSubmit={submitSearch} role="search">
             <Search size={18} aria-hidden="true" />
@@ -547,7 +547,7 @@ export function CatalogPage({ products, categories, status, wishlist, onWish, on
         </section>
       </div>
 
-      <Modal open={filterOpen} onClose={() => setFilterOpen(false)} title={t('cat.filterFabrics')} variant="bottom" className="filter-drawer">
+      <Modal open={filterOpen} onClose={() => setFilterOpen(false)} title={t('cat.filterProducts')} variant="bottom" className="filter-drawer">
         <div className="drawer-header">
           <h2>{t('cat.filterResultsTitle')}</h2>
           <button type="button" className="icon-button" onClick={() => setFilterOpen(false)} aria-label={t('cat.closeFilter')}>
@@ -603,7 +603,7 @@ function FilterPanel({
       </div>
 
       <fieldset>
-        <legend>{t('cat.fabricType')}</legend>
+        <legend>{t('cat.productType')}</legend>
         <label className="filter-option">
           <input type="radio" name={`category-${scope}`} checked={!categoryId} onChange={() => onChange({ category: null })} />
           <span>{t('cat.allCategories')}</span>
@@ -671,7 +671,7 @@ function FilterPanel({
       </label>
 
       <button type="button" className="filter-browse" onClick={onClear} disabled={!hasFilters}>
-        {t('cat.showAllFabrics')} <ArrowLeft size={14} aria-hidden="true" />
+        {t('cat.showAllProducts')} <ArrowLeft size={14} aria-hidden="true" />
       </button>
     </div>
   )

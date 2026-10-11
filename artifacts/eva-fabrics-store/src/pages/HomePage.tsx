@@ -82,7 +82,7 @@ export function HomePage({ products, categories, wishlist, onWish, onAdd }: Home
       <StepsSection />
 
       <section className="container-eva section-block category-section" aria-label={t('home.categoriesAria')}>
-        <SectionHeading eyebrow={content.categoriesEyebrow} title={content.categoriesTitle} linkLabel={t('home.showAllFabrics')} linkHref="/catalog" />
+        <SectionHeading eyebrow={content.categoriesEyebrow} title={content.categoriesTitle} linkLabel={t('home.showAllProducts')} linkHref="/catalog" />
         <div className="category-grid">
           {categories.map((category) => {
             const override = CATEGORY_IMAGES[category.id]
@@ -153,14 +153,14 @@ export function HomePage({ products, categories, wishlist, onWish, onAdd }: Home
               ))}
             </h2>
             <p>{content.guideText}</p>
-            <Link href="/fabric-guide" className="button button-light">{content.guideCta} <ArrowLeft size={16} /></Link>
+            <Link href="/size-guide" className="button button-light">{content.guideCta} <ArrowLeft size={16} /></Link>
           </div>
           <div className="guide-faq-list glass-dark">{faqSource.slice(0, 4).map((item, index) => <div className={`guide-faq ${openFaq === index ? 'is-open' : ''}`} key={item.question}><button type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}><span>{t('home.faq.questionNumber').replace('{n}', String(index + 1))}</span><strong>{item.question}</strong><ChevronDown size={17} /></button>{openFaq === index && <p>{item.answer}</p>}</div>)}</div>
         </div>
       </section>
 
       <section className="container-eva section-block story-section" aria-label={t('home.storyEyebrow')}>
-        <div className="story-visual"><SmartImage src="products/swfmytalk/01.jpg" alt={t('home.storyImageAlt')} sizes="(max-width: 820px) 92vw, 45vw" /><span>EVA<br /><strong>FABRICS</strong></span></div>
+        <div className="story-visual"><SmartImage src="products/arsenall/01.webp" alt={t('home.storyImageAlt')} sizes="(max-width: 820px) 92vw, 45vw" /><span>Arsenall</span></div>
         <div className="story-copy"><span className="eyebrow">{t('home.storyEyebrow')}</span><h2>{story.title}</h2><p>{story.text}</p><p>{t('home.storyText2')}</p><Link href="/about" className="button button-outline">{t('home.storyCta')} <ArrowLeft size={16} /></Link></div>
       </section>
 

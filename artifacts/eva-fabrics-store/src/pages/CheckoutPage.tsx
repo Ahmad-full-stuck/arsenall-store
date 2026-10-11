@@ -56,7 +56,7 @@ const createLocalOrderNumber = (): string => {
   const now = new Date()
   const stamp = `${String(now.getFullYear()).slice(-2)}${padNumber(now.getMonth() + 1)}${padNumber(now.getDate())}`
   const suffix = Math.floor(1000 + Math.random() * 9000)
-  return `EVA-${stamp}-${suffix}`
+  return `ARSENALL-${stamp}-${suffix}`
 }
 
 const glassStyles = `
@@ -216,7 +216,7 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
           <div className="empty-icon"><Check size={25} /></div>
           <h1>{t('co.emptyTitle')}</h1>
           <p>{t('co.emptyText')}</p>
-          <Link href="/catalog" className="button button-primary">{t('co.backToFabrics')} <ArrowLeft size={16} /></Link>
+          <Link href="/catalog" className="button button-primary">{t('co.backToProducts')} <ArrowLeft size={16} /></Link>
         </div>
       </main>
     )
