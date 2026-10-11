@@ -46,8 +46,8 @@ const glassStyles = `
 }
 .product-card.glass-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(122, 30, 60, .38);
-  box-shadow: 0 26px 48px rgba(122, 30, 60, .18);
+  border-color: rgba(194,24,91, .38);
+  box-shadow: 0 26px 48px rgba(194,24,91, .18);
 }
 @media (max-width: 560px) {
   .product-card.glass-card { padding: 10px 10px 14px; }
@@ -64,7 +64,7 @@ const glassStyles = `
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
 }
-.product-card.glass-card .badge-accent { background: rgba(122, 30, 60, .85); }
+.product-card.glass-card .badge-accent { background: rgba(194,24,91, .85); }
 .product-card.glass-card .badge-warm { background: rgba(217, 121, 67, .88); }
 .product-card.glass-card .badge-muted { background: rgba(255, 252, 249, .88); }
 .product-card.glass-card .product-wish {
@@ -178,7 +178,7 @@ export function ProductCard({ product, wished, onWish, onAdd, priority = false }
             <p className="product-type">{lang === 'en' ? typeLabelEn(product.type) : product.type}</p>
             <Link href={detailPath} className="product-name">{product.name}</Link>
           </div>
-          <span className="product-price">{formatPrice(product.price)}<small>{t('card.perMeter')}</small></span>
+          <span className="product-price">{formatPrice(product.price)}<small>{t('card.perPiece')}</small></span>
         </div>
         <div className="product-card-footer">
           <button

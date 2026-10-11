@@ -33,7 +33,7 @@ const STRETCH_OPTIONS: { value: StretchKey; labelKey: string }[] = [
   { value: 'non', labelKey: 'cat.stretchNon' },
 ]
 
-const STOP_WORDS = new Set(['قماش', 'القماش', 'اقمشه', 'الاقمشه', 'fabric'])
+const STOP_WORDS = new Set(['منتج', 'المنتج', 'منتجات', 'المنتجات', 'product'])
 
 const PAGE_SIZE = 24
 
@@ -57,7 +57,7 @@ const catalogStyles = `
   place-items: center;
   padding-inline: 7px;
   color: var(--eva-rose);
-  background: rgba(122, 30, 60, .12);
+  background: rgba(194,24,91, .12);
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 600;
@@ -75,8 +75,8 @@ const catalogStyles = `
 .empty-state.glass-card:hover { transform: none; box-shadow: var(--glass-shadow); }
 .pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 7px; margin-top: 30px; }
 .pager-btn { min-width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; font-family: inherit; font-size: 13px; font-weight: 600; color: var(--eva-ink); background: rgba(255, 251, 250, .78); border: 1px solid rgba(255, 255, 255, .9); border-radius: 13px; box-shadow: 0 6px 16px -12px rgba(74, 24, 43, .35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); cursor: pointer; font-variant-numeric: tabular-nums; transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
-.pager-btn:hover:not(:disabled) { color: var(--eva-rose); border-color: rgba(122, 30, 60, .35); transform: translateY(-1px); }
-.pager-btn.is-active { color: #fff; background: var(--eva-rose); border-color: var(--eva-rose); box-shadow: 0 10px 22px -12px rgba(122, 30, 60, .55); }
+.pager-btn:hover:not(:disabled) { color: var(--eva-rose); border-color: rgba(194,24,91, .35); transform: translateY(-1px); }
+.pager-btn.is-active { color: #fff; background: var(--eva-rose); border-color: var(--eva-rose); box-shadow: 0 10px 22px -12px rgba(194,24,91, .55); }
 .pager-btn.is-active:hover { color: #fff; transform: none; }
 .pager-btn:focus-visible { outline: 2px solid var(--eva-rose); outline-offset: 2px; }
 .pager-gap { min-width: 24px; text-align: center; color: var(--eva-muted); font-size: 13px; letter-spacing: 1px; }

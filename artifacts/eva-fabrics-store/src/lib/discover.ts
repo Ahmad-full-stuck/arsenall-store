@@ -90,17 +90,17 @@ const profileOf = (product: Product): Profile => {
 type Rule = (profile: Profile, source: string) => { points: number; why: string }[]
 
 const GARMENT_RULES: Record<string, Rule> = {
-  'فستان يومي': (p, s) => [
-    { points: has(s, ['فستان', 'قميص', 'تنورة', 'يومي']) ? 30 : 0, why: 'disc.suitableDailyDresses' },
+  'ملابس يومي': (p, s) => [
+    { points: has(s, ['ملابس', 'قميص', 'تنورة', 'يومي']) ? 30 : 0, why: 'disc.suitableDailyDresses' },
     { points: p.light ? 18 : 0, why: 'disc.lightComfortable' },
     { points: p.opaque ? 14 : 0, why: 'disc.notSheer' },
     { points: p.stretch === 'yes' ? 12 : 0, why: 'disc.stretchyEasySew' },
     { points: p.heavy ? -10 : 0, why: 'disc.heavyForDaily' },
   ],
-  'فستان سهرة': (p, s) => [
+  'ملابس سهرة': (p, s) => [
     { points: p.gloss ? 32 : 0, why: 'disc.eveningShine' },
     { points: has(s, ['سهرة', 'ناعم', 'انسيابي', 'ساتان']) ? 22 : 0, why: 'disc.elegantDrape' },
-    { points: has(s, ['فستان', 'سهرة']) ? 14 : 0, why: 'disc.mentionedDresses' },
+    { points: has(s, ['ملابس', 'سهرة']) ? 14 : 0, why: 'disc.mentionedDresses' },
     { points: p.opaque ? 10 : 0, why: 'disc.comfortableCoverage' },
     { points: p.matte && !p.gloss ? -8 : 0, why: 'disc.matteNoShine' },
   ],

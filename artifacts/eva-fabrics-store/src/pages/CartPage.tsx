@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, Minus, Pencil, Plus, ShieldCheck, ShoppingBag, Trash2, Truck } from 'lucide-react'
 import { Link } from 'wouter'
 import type { CartItem } from '@/types'
-import { availableMeters, formatDinar, formatMeters, formatPrice, getCartTotals, orderKey } from '@/lib/catalog'
+import { availableMeters, formatDinar, formatPieces, formatPrice, getCartTotals, orderKey } from '@/lib/catalog'
 import { useT } from '@/lib/i18n'
 import { typeLabelsEn } from '@/lib/strings/product'
 import { useStoreSettings } from '@/lib/site-content'
@@ -22,10 +22,10 @@ const glassStyles = `
 .glass-scope .glass.checkout-summary, .glass-scope .glass.order-summary { position: sticky; top: 120px; }
 .glass-scope .glass-dark { color: #fff6f8; background: rgba(48, 38, 42, .9); border: 1px solid rgba(255, 248, 241, .18); box-shadow: 0 16px 34px rgba(48, 38, 42, .22); }
 .glass-scope .glass-pill { border-radius: 999px; }
-.glass-scope .glass-divider { height: 1px; margin: 16px 0; background: linear-gradient(90deg, rgba(122, 30, 60, 0), rgba(122, 30, 60, .35), rgba(122, 30, 60, 0)); border: 0; }
+.glass-scope .glass-divider { height: 1px; margin: 16px 0; background: linear-gradient(90deg, rgba(194,24,91, 0), rgba(194,24,91, .35), rgba(194,24,91, 0)); border: 0; }
 .glass-scope .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; color: var(--eva-muted); background: rgba(255, 255, 255, .72); border: 1px solid rgba(255, 255, 255, .9); border-radius: 999px; font-size: 11.5px; line-height: 1.7; }
 .glass-scope .chip i { width: 11px; height: 11px; border: 1px solid rgba(43, 33, 36, .2); border-radius: 50%; }
-.glass-scope a.chip:hover { color: var(--eva-rose); border-color: rgba(122, 30, 60, .45); }
+.glass-scope a.chip:hover { color: var(--eva-rose); border-color: rgba(194,24,91, .45); }
 .glass-scope .cart-items { padding: 4px 20px; border-top: 0; border-radius: 18px; }
 .glass-scope .cart-item:last-child { border-bottom: 0; }
 .glass-scope .cart-item-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
@@ -49,7 +49,7 @@ const glassStyles = `
   .glass-scope .glass.checkout-summary, .glass-scope .glass.order-summary { position: static; top: auto; }
   .glass-scope .cart-items { padding: 4px 15px; }
   .glass-scope .cart-page { padding-bottom: 110px; }
-  .glass-scope .cart-mobile-bar { position: fixed; right: 10px; bottom: calc(14px + env(safe-area-inset-bottom)); left: 10px; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 16px; background: rgba(255, 251, 250, .93); border: 1px solid rgba(122, 30, 60, .16); border-radius: 20px; box-shadow: 0 18px 38px rgba(74, 24, 43, .2); backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%); }
+  .glass-scope .cart-mobile-bar { position: fixed; right: 10px; bottom: calc(14px + env(safe-area-inset-bottom)); left: 10px; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 16px; background: rgba(255, 251, 250, .93); border: 1px solid rgba(194,24,91, .16); border-radius: 20px; box-shadow: 0 18px 38px rgba(74, 24, 43, .2); backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%); }
   .glass-scope .cart-mobile-bar > span { display: grid; gap: 1px; }
   .glass-scope .cart-mobile-bar small { color: var(--eva-muted); font-size: 11.5px; }
   .glass-scope .cart-mobile-bar strong { color: var(--eva-rose); font-size: 19px; }
@@ -102,7 +102,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
 
   const handleUpdate = (item: CartItem, nextLength: number) => {
     onUpdate(orderKey(item), nextLength)
-    setAnnouncement(t('cart.updated').replace('{name}', item.product.name).replace('{meters}', formatMeters(nextLength)))
+    setAnnouncement(t('cart.updated').replace('{name}', item.product.name).replace('{meters}', formatPieces(nextLength)))
   }
 
   const handleRemove = (item: CartItem) => {
@@ -141,7 +141,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
         <div>
           <span className="eyebrow">{t('cart.eyebrow')}</span>
           <h1>{t('cart.title')}</h1>
-          <p>{t('cart.inCart').replace('{meters}', formatMeters(meters))}</p>
+          <p>{t('cart.inCart').replace('{meters}', formatPieces(meters))}</p>
         </div>
         <Link href="/catalog" className="underlined-link">{t('cart.continue')} <ArrowLeft size={15} /></Link>
       </div>
@@ -163,7 +163,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
                       <span className="product-type">{lang === 'en' ? typeLabelsEn[item.product.type] || item.product.type : item.product.type}</span>
                       <Link href={`/product/${item.product.slug}`} className="product-name">{item.product.name}</Link>
                       <div className="cart-item-chips">
-                        <span className="chip glass-pill">{formatPrice(item.product.price)} / {t('cart.perMeter')}</span>
+                        <span className="chip glass-pill">{formatPrice(item.product.price)} / {t('cart.perPiece')}</span>
                       </div>
                     </div>
                     <div className="cart-item-tools">
@@ -174,11 +174,11 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
                   <div className="cart-item-bottom">
                     <div className="quantity-control compact">
                       <button type="button" onClick={() => handleUpdate(item, item.length - 0.5)} disabled={item.length <= 0.5} aria-label={t('cart.decreaseAria').replace('{name}', item.product.name)}><Minus size={15} /></button>
-                      <output aria-label={t('cart.qtyAria').replace('{name}', item.product.name)}>{formatMeters(item.length)}</output>
+                      <output aria-label={t('cart.qtyAria').replace('{name}', item.product.name)}>{formatPieces(item.length)}</output>
                       <button type="button" onClick={() => handleUpdate(item, item.length + 0.5)} disabled={item.length >= maxMeters} aria-label={t('cart.increaseAria').replace('{name}', item.product.name)}><Plus size={15} /></button>
                     </div>
                     <div className="cart-item-total">
-                      <small>{formatMeters(item.length)} × {formatPrice(item.product.price)}</small>
+                      <small>{formatPieces(item.length)} × {formatPrice(item.product.price)}</small>
                       <strong>{formatPrice(lineTotal)}</strong>
                     </div>
                   </div>

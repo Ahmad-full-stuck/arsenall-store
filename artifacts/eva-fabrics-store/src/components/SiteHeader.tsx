@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { BookOpen, ChevronLeft, Heart, Home, Info, Languages, Menu, MessageCircle, PackageSearch, Search, ShieldCheck, ShoppingBag, Shirt, X } from 'lucide-react'
 import { Link, useLocation } from 'wouter'
 import type { Product, SiteRoute } from '@/types'
-import { formatMeters } from '@/lib/catalog'
+import { formatPieces } from '@/lib/catalog'
 import { useSiteContent } from '@/lib/site-content'
 import { useT } from '@/lib/i18n'
 import { routeLabelsEn } from '@/lib/strings/header'
@@ -148,10 +148,10 @@ export function SiteHeader({ routes, products, cartMeters, wishlistCount }: Site
               <Heart size={19} />
               {wishlistCount > 0 && <span>{wishlistCount}</span>}
             </Link>
-            <Link href="/cart" className="cart-button" onClick={navigate} aria-label={t('header.cartAria').replace('{meters}', formatMeters(cartMeters))}>
+            <Link href="/cart" className="cart-button" onClick={navigate} aria-label={t('header.cartAria').replace('{meters}', formatPieces(cartMeters))}>
               <ShoppingBag size={17} />
               <span>{t('core.toastCart')}</span>
-              {cartMeters > 0 && <b>{formatMeters(cartMeters)}</b>}
+              {cartMeters > 0 && <b>{formatPieces(cartMeters)}</b>}
             </Link>
             <button type="button" className="icon-button menu-toggle" onClick={() => setMenuOpen(true)} aria-label={t('header.openMenu')} aria-haspopup="dialog" aria-expanded={menuOpen}>
               <Menu size={20} />

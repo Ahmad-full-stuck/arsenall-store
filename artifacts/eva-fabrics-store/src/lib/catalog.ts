@@ -58,13 +58,13 @@ export const formatDinar = (value: number): string => {
   return tr('core.dinarShort').replace('{n}', safe.toLocaleString(getCurrentLang() === 'en' ? 'en-US' : 'ar-IQ'))
 }
 
-/** «0.5» → «نصف متر» */
-export const metersLabel = (value: number): string =>
-  value === 0.5 ? tr('core.metersHalf') : `${Number(value.toFixed(2)).toLocaleString(getCurrentLang() === 'en' ? 'en-US' : 'ar-IQ')} ${tr('core.metersWord')}`
+/** «0.5» → «قطعة واحدة» */
+export const piecesLabel = (value: number): string =>
+  value === 0.5 ? tr('core.piecesHalf') : `${Number(value.toFixed(2)).toLocaleString(getCurrentLang() === 'en' ? 'en-US' : 'ar-IQ')} ${tr('core.piecesWord')}`
 
-export const formatMeters = (value: number): string => (value === 0.5
-  ? tr('core.metersShortHalf')
-  : `${value.toLocaleString(getCurrentLang() === 'en' ? 'en-US' : 'ar-IQ', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${tr('core.metersShortUnit')}`)
+export const formatPieces = (value: number): string => (value === 0.5
+  ? tr('core.piecesShortHalf')
+  : `${value.toLocaleString(getCurrentLang() === 'en' ? 'en-US' : 'ar-IQ', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${tr('core.piecesShortUnit')}`)
 
 export const normalizeHalfMeters = (value: number): number => {
   if (!Number.isFinite(value) || value <= 0) return 0

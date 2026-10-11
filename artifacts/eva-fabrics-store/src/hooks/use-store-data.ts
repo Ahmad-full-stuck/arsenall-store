@@ -77,7 +77,7 @@ const normalizeSpecs = (value: unknown): ProductSpecs => {
   const hasExplicitStretch = typeof source.isStretch === 'boolean'
   const isStretch = hasExplicitStretch ? source.isStretch as boolean : !normalizeArabic(stretch).includes('غير مطاطي')
   return {
-    composition: textFrom(source.composition, 'خامة غير محددة'),
+    composition: textFrom(source.composition, 'منتج غير محددة'),
     width: textFrom(source.width, 'غير محددة'),
     weight: textFrom(source.weight, 'غير محددة'),
     stretch,

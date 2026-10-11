@@ -32,7 +32,7 @@ const readStoredLang = (): Lang => {
 
 let currentLang: Lang = typeof window === 'undefined' ? 'ar' : readStoredLang()
 
-/** Non-React access for plain helpers (formatPrice, metersLabel, …). */
+/** Non-React access for plain helpers (formatPrice, piecesLabel, …). */
 export const getCurrentLang = (): Lang => currentLang
 
 /** Non-React translation using the current language (for non-component code). */

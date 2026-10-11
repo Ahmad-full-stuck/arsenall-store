@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'rea
 import { ArrowLeft, ArrowRight, Check, CircleAlert, LoaderCircle, MapPin, Navigation, Phone, RefreshCw, ShieldCheck, UserRound } from 'lucide-react'
 import { Link, useLocation } from 'wouter'
 import type { CartItem, CheckoutForm, CustomerProfile, OrderPayload } from '@/types'
-import { formatMeters, formatPrice, getCartTotals, getOrderNumber } from '@/lib/catalog'
+import { formatPieces, formatPrice, getCartTotals, getOrderNumber } from '@/lib/catalog'
 import { useT } from '@/lib/i18n'
 import { apiUrl } from '@/lib/site'
 import { governorates } from '@/lib/fallback-data'
@@ -68,7 +68,7 @@ const glassStyles = `
 .glass-scope .glass-dark { color: #fff6f8; background: rgba(46, 24, 33, .92); border: 1px solid rgba(255, 246, 248, .18); box-shadow: 0 16px 34px rgba(46, 24, 33, .24); }
 .glass-scope .glass-pill { border-radius: 999px; }
 .glass-scope .glass-input, .glass-scope .field-input, .glass-scope .field textarea { background: rgba(255, 255, 255, .74); border-color: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-.glass-scope .glass-divider { height: 1px; margin: 16px 0; background: linear-gradient(90deg, rgba(122, 30, 60, 0), rgba(122, 30, 60, .32), rgba(122, 30, 60, 0)); border: 0; }
+.glass-scope .glass-divider { height: 1px; margin: 16px 0; background: linear-gradient(90deg, rgba(194,24,91, 0), rgba(194,24,91, .32), rgba(194,24,91, 0)); border: 0; }
 .glass-scope .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: var(--eva-muted); background: rgba(255, 255, 255, .78); border: 1px solid rgba(255, 255, 255, .92); border-radius: 999px; font-size: 11.5px; line-height: 1.7; }
 .glass-scope .chip i { width: 11px; height: 11px; border: 1px solid rgba(43, 33, 36, .2); border-radius: 50%; }
 .glass-scope .review-block { background: rgba(255, 255, 255, .62); border-color: rgba(255, 255, 255, .88); }
@@ -98,7 +98,7 @@ const glassStyles = `
 
 .glass-scope .order-box { padding: 30px; }
 .glass-scope .order-box-head { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 24px; }
-.glass-scope .order-box-icon { display: grid; place-items: center; width: 46px; height: 46px; flex: 0 0 46px; color: #fff; background: linear-gradient(140deg, var(--eva-rose), var(--eva-rose-dark)); border-radius: 14px; box-shadow: 0 10px 22px rgba(122, 30, 60, .28); }
+.glass-scope .order-box-icon { display: grid; place-items: center; width: 46px; height: 46px; flex: 0 0 46px; color: #fff; background: linear-gradient(140deg, var(--eva-rose), var(--eva-rose-dark)); border-radius: 14px; box-shadow: 0 10px 22px rgba(194,24,91, .28); }
 .glass-scope .order-box-head h2 { margin: 0 0 4px; font-size: 21px; }
 .glass-scope .order-box-head p { margin: 0; color: var(--eva-muted); font-size: 13.5px; line-height: 1.8; }
 
@@ -111,17 +111,17 @@ const glassStyles = `
 .glass-scope .order-box .field-error { font-size: 12px; }
 .glass-scope .order-box .field-hint { color: var(--eva-muted); font-size: 11.5px; line-height: 1.7; }
 
-.glass-scope .order-total-strip { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 26px; padding: 16px 18px; background: linear-gradient(120deg, rgba(122, 30, 60, .07), rgba(122, 30, 60, .02)); border: 1px solid rgba(122, 30, 60, .14); border-radius: 18px; }
+.glass-scope .order-total-strip { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 26px; padding: 16px 18px; background: linear-gradient(120deg, rgba(194,24,91, .07), rgba(194,24,91, .02)); border: 1px solid rgba(194,24,91, .14); border-radius: 18px; }
 .glass-scope .order-total-strip > span { display: grid; gap: 2px; color: var(--eva-muted); font-size: 12.5px; }
 .glass-scope .order-total-strip strong { color: var(--eva-rose); font-size: 24px; line-height: 1.3; }
-.glass-scope .order-submit { width: 100%; min-height: 56px; margin-top: 14px; font-size: 16px; border-radius: 16px; box-shadow: 0 14px 30px rgba(122, 30, 60, .3); }
+.glass-scope .order-submit { width: 100%; min-height: 56px; margin-top: 14px; font-size: 16px; border-radius: 16px; box-shadow: 0 14px 30px rgba(194,24,91, .3); }
 .glass-scope .order-submit:disabled { box-shadow: none; }
 .glass-scope .consent-row {
   display: grid; grid-template-columns: 22px 1fr auto; align-items: start; gap: 9px;
   margin-top: 12px; padding: 11px 12px; background: rgba(255, 255, 255, .5);
   border: 1px solid rgba(255, 255, 255, .78); border-radius: 14px; cursor: pointer;
 }
-.glass-scope .consent-row:has(.consent-box:checked) { background: rgba(122, 30, 60, .06); border-color: rgba(122, 30, 60, .28); }
+.glass-scope .consent-row:has(.consent-box:checked) { background: rgba(194,24,91, .06); border-color: rgba(194,24,91, .28); }
 .glass-scope .consent-box {
   width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--eva-rose); cursor: pointer;
 }
@@ -140,7 +140,7 @@ const glassStyles = `
 .glass-scope .checkout-item div { display: grid; gap: 3px; }
 .glass-scope .checkout-item span { color: var(--eva-muted); font-size: 12px; }
 .glass-scope .summary-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 11px; font-size: 13.5px; }
-.glass-scope .summary-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; padding-top: 15px; border-top: 1px solid rgba(122, 30, 60, .16); font-size: 15px; }
+.glass-scope .summary-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; padding-top: 15px; border-top: 1px solid rgba(194,24,91, .16); font-size: 15px; }
 .glass-scope .summary-total strong { color: var(--eva-rose); font-size: 22px; }
 
 @media (max-width: 820px) {
@@ -579,7 +579,7 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
                 <SmartImage src={item.product.image} alt="" sizes="64px" />
                 <div>
                   <strong>{item.product.name}</strong>
-                  <span>{item.color.name} · {formatMeters(item.length)}</span>
+                  <span>{item.color.name} · {formatPieces(item.length)}</span>
                 </div>
                 <b>{formatPrice(item.product.price * item.length)}</b>
               </div>

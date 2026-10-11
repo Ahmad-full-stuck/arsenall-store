@@ -162,7 +162,7 @@ const emptyProduct = (): Product => ({
   images: [],
   colors: [{ id: 'color-1', name: 'أساسي', hex: '#8e6e7d', available: true, stockMeters: 10 }],
   specs: {
-    composition: 'خامة غير محددة',
+    composition: 'منتج غير محددة',
     width: 'غير محددة',
     weight: 'غير محددة',
     stretch: 'غير محدد',
@@ -222,7 +222,7 @@ const adminStyles = `
 .admin-tabs::-webkit-scrollbar { display: none; }
 .admin-tab { flex: 0 0 auto; min-height: 38px; padding: 8px 15px; border: 1px solid var(--eva-line); border-radius: 999px; background: #fff; color: var(--eva-muted); font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: inherit; transition: color .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease; }
 .admin-tab:hover { color: var(--eva-rose); border-color: var(--eva-rose); }
-.admin-tab.is-active { color: #fff; background: var(--eva-rose); border-color: var(--eva-rose); box-shadow: 0 8px 18px -8px rgba(122, 30, 60, .55); }
+.admin-tab.is-active { color: #fff; background: var(--eva-rose); border-color: var(--eva-rose); box-shadow: 0 8px 18px -8px rgba(194,24,91, .55); }
 .admin-body { flex: 1 1 auto; padding: 18px 18px 22px; overflow-y: auto; overflow-x: hidden; min-height: 0; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; word-break: break-word; }
 .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
 .admin-card { border: 1px solid var(--eva-line); border-radius: 14px; overflow: hidden; background: #fff; }
@@ -243,7 +243,7 @@ const adminStyles = `
 .admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .admin-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .admin-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 9px 16px; border: 1px solid transparent; border-radius: 12px; background: var(--eva-rose); color: #fff; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease, color .15s ease; }
-.admin-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 22px -10px rgba(122, 30, 60, .55); }
+.admin-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 22px -10px rgba(194,24,91, .55); }
 .admin-btn:focus-visible { outline: 2px solid var(--eva-rose); outline-offset: 2px; }
 .admin-btn.ghost { background: #fff; color: var(--eva-ink); border-color: var(--eva-line-strong); }
 .admin-btn.ghost:hover:not(:disabled) { color: var(--eva-rose); border-color: var(--eva-rose); background: var(--eva-rose-soft); box-shadow: none; }
@@ -253,7 +253,7 @@ const adminStyles = `
 .admin-note { font-size: 12px; color: var(--eva-muted); line-height: 1.8; background: var(--eva-rose-soft); border: 1px solid var(--eva-rose-tint); border-radius: 12px; padding: 10px 12px; }
 .admin-note.ok { background: #eef7f1; border-color: #cfe7d8; color: #2f5c42; }
 .admin-login { display: grid; gap: 15px; justify-items: center; text-align: center; padding: 42px 22px; }
-.admin-login .lock { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; color: #fff; background: linear-gradient(135deg, var(--eva-rose), var(--eva-charcoal)); box-shadow: 0 16px 32px -14px rgba(122, 30, 60, .65); }
+.admin-login .lock { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; color: #fff; background: linear-gradient(135deg, var(--eva-rose), var(--eva-charcoal)); box-shadow: 0 16px 32px -14px rgba(194,24,91, .65); }
 .admin-login h3 { margin: 0; font-size: 18px; }
 .admin-login p { margin: 0; font-size: 12.5px; color: var(--eva-muted); max-width: 330px; line-height: 1.8; }
 .admin-pin { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; width: 100%; }
@@ -473,7 +473,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
     const cleanUser = username.trim()
     const withUser = Boolean(cleanUser && password)
     if (!withUser && !pin) {
-      setPinError('أدخلي بيانات الدخول')
+      setPinError('أدخل بيانات الدخول')
       return
     }
 
@@ -943,7 +943,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
               <div className="admin-login">
                 <span className="lock"><Lock size={22} /></span>
                 <h3>تسجيل الدخول كمدير</h3>
-                <p>{usePinMode ? 'أدخلي رمز الدخول السريع، أو استخدمي اسم المستخدم وكلمة المرور.' : 'أدخلي اسم المستخدم وكلمة المرور الدائمين للوصول إلى لوحة إدارة المنتجات والمحتوى.'}</p>
+                <p>{usePinMode ? 'أدخل رمز الدخول السريع، أو استخدمي اسم المستخدم وكلمة المرور.' : 'أدخل اسم المستخدم وكلمة المرور الدائمين للوصول إلى لوحة إدارة المنتجات والمحتوى.'}</p>
                 {usePinMode ? (
                   <div className="admin-pin">
                     <input
@@ -1454,7 +1454,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
                         <button type="button" className="admin-btn success" onClick={saveContent}>
                           <Save size={15} /> حفظ المحتوى
                         </button>
-                        <button type="button" className="admin-btn" onClick={() => { setContent({ ...defaultSiteContent }); setToast('تمت استعادة النصوص الافتراضية، اضغطي حفظ') }}>
+                        <button type="button" className="admin-btn" onClick={() => { setContent({ ...defaultSiteContent }); setToast('تمت استعادة النصوص الافتراضية، اضغط حفظ') }}>
                           <RotateCcw size={15} /> استعادة النصوص الافتراضية
                         </button>
                       </div>
@@ -1512,7 +1512,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
                           <strong style={{ fontSize: 13.5 }}>رسائل التواصل</strong>
                           <span className="admin-chip">{messages.length} رسالة</span>
                         </div>
-                        {!messages.length && <div className="admin-note">لا توجد رسائل بعد. تصل رسائل صفحة «تواصلي معنا» هنا.</div>}
+                        {!messages.length && <div className="admin-note">لا توجد رسائل بعد. تصل رسائل صفحة «تواصل معنا» هنا.</div>}
                         <div className="admin-list">
                           {messages.map((row) => (
                             <div className="admin-list-item" key={row.id} style={{ display: 'grid', gap: 6 }}>
