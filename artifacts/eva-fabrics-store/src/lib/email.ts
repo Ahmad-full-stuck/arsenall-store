@@ -33,7 +33,7 @@ export interface OrderEmailConfig {
 
 export const formatPieces = (m: number): string => {
   const s = m.toFixed(1).replace(/\.0$/, '')
-  return s === '0.5' || s === '1.5' || s === '2.5' || s === '3.5' || s === '4.5' || s === '5.5' ? `${s} م` : `${s} متر`
+  return `${s} قطعة`
 }
 
 export const formatPrice = (p: number): string => (p >= 1000 && p % 1000 === 0 ? `${p / 1000} الف دينار عراقي` : `${p.toLocaleString('ar-IQ')} دينار عراقي`)

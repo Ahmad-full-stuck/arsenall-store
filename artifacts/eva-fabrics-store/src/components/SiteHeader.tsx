@@ -13,7 +13,7 @@ import { SearchDialog } from './SearchDialog'
 interface SiteHeaderProps {
   routes: SiteRoute[]
   products: Product[]
-  cartMeters: number
+  cartPieces: number
   wishlistCount: number
 }
 
@@ -69,7 +69,7 @@ const drawerGroups: { label: string; items: IconNavItem[] }[] = [
   },
 ]
 
-export function SiteHeader({ routes, products, cartMeters, wishlistCount }: SiteHeaderProps) {
+export function SiteHeader({ routes, products, cartPieces, wishlistCount }: SiteHeaderProps) {
   const [location] = useLocation()
   const [searchOpen, setSearchOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -148,10 +148,10 @@ export function SiteHeader({ routes, products, cartMeters, wishlistCount }: Site
               <Heart size={19} />
               {wishlistCount > 0 && <span>{wishlistCount}</span>}
             </Link>
-            <Link href="/cart" className="cart-button" onClick={navigate} aria-label={t('header.cartAria').replace('{meters}', formatPieces(cartMeters))}>
+            <Link href="/cart" className="cart-button" onClick={navigate} aria-label={t('header.cartAria').replace('{pieces}', formatPieces(cartPieces))}>
               <ShoppingBag size={17} />
               <span>{t('core.toastCart')}</span>
-              {cartMeters > 0 && <b>{formatPieces(cartMeters)}</b>}
+              {cartPieces > 0 && <b>{formatPieces(cartPieces)}</b>}
             </Link>
             <button type="button" className="icon-button menu-toggle" onClick={() => setMenuOpen(true)} aria-label={t('header.openMenu')} aria-haspopup="dialog" aria-expanded={menuOpen}>
               <Menu size={20} />

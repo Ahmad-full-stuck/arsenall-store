@@ -3,7 +3,7 @@ export interface ProductColor {
   name: string
   hex: string
   available: boolean
-  stockMeters: number
+  stockPieces: number
   image?: string
 }
 
@@ -42,7 +42,7 @@ export interface Product {
   faqs: ProductFaq[]
   isNew: boolean
   isFeatured: boolean
-  stockMeters: number
+  stockPieces: number
   createdAt: string
   sourceUrl?: string
 }

@@ -35,7 +35,7 @@ const groupFields: { title: string; fields: TextField[] }[] = [
     title: 'الغلاف الرئيسي',
     fields: [
       { key: 'heroEyebrow', label: 'النص الصغير فوق العنوان' },
-      { key: 'heroTitle', label: 'عنوان الغلاف', area: true, hint: 'افصلي السطور بـ | وأحيطي الكلمة المميزة بـ *' },
+      { key: 'heroTitle', label: 'عنوان الغلاف', area: true, hint: 'افصل السطور بـ | وأحيطي الكلمة المميزة بـ *' },
       { key: 'heroText', label: 'النص تحت العنوان', area: true },
       { key: 'heroNote', label: 'ملاحظة الغلاف الأولى' },
       { key: 'heroNoteAlt', label: 'ملاحظة الغلاف الثانية' },
@@ -60,7 +60,7 @@ const groupFields: { title: string; fields: TextField[] }[] = [
     title: 'قسم دليل المقاسات في الرئيسية',
     fields: [
       { key: 'guideEyebrow', label: 'العنوان الصغير' },
-      { key: 'guideTitle', label: 'عنوان القسم', area: true, hint: 'افصلي السطور بـ |' },
+      { key: 'guideTitle', label: 'عنوان القسم', area: true, hint: 'افصل السطور بـ |' },
       { key: 'guideText', label: 'نص القسم', area: true },
       { key: 'guideCta', label: 'نص الزر' },
     ],
@@ -160,7 +160,7 @@ const emptyProduct = (): Product => ({
   price: 0,
   image: '',
   images: [],
-  colors: [{ id: 'color-1', name: 'أساسي', hex: '#8e6e7d', available: true, stockMeters: 10 }],
+  colors: [{ id: 'color-1', name: 'أساسي', hex: '#8e6e7d', available: true, stockPieces: 10 }],
   specs: {
     composition: 'منتج غير محددة',
     width: 'غير محددة',
@@ -175,7 +175,7 @@ const emptyProduct = (): Product => ({
   faqs: [],
   isNew: true,
   isFeatured: false,
-  stockMeters: 10,
+  stockPieces: 10,
   createdAt: new Date().toISOString().slice(0, 10),
 })
 
@@ -757,7 +757,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
       id: slug,
       name: product.name.trim(),
       price: Math.max(0, Number(product.price) || 0),
-      stockMeters: Math.max(0, Number(product.stockMeters) || 0),
+      stockPieces: Math.max(0, Number(product.stockPieces) || 0),
       image: product.image || product.images[0] || '',
       images: product.images.length ? product.images : (product.image ? [product.image] : []),
     }
@@ -895,7 +895,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
     const name = newCat.trim()
     if (!name) return
     const slug = `cat-${Date.now()}`
-    const next = [...customCategories, { id: slug, slug, name, description: name, image: '', accent: '#a34163' }]
+    const next = [...customCategories, { id: slug, slug, name, description: name, image: '', accent: '#c2185b' }]
     setCustomCategories(next)
     writeJson(CATEGORIES_KEY, next)
     setNewCat('')
@@ -1064,7 +1064,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
                         </div>
                         <div className="admin-field">
                           <label>المخزون (قطعة)</label>
-                          <input type="number" min={0} value={editing.stockMeters} onChange={(event) => setField('stockMeters', Number(event.target.value))} dir="ltr" />
+                          <input type="number" min={0} value={editing.stockPieces} onChange={(event) => setField('stockPieces', Number(event.target.value))} dir="ltr" />
                         </div>
                       </div>
 
@@ -1222,7 +1222,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
                           <button
                             type="button"
                             className="admin-btn ghost"
-                            onClick={() => setField('colors', [...editing.colors, { id: `color-${editing.colors.length + 1}-${Date.now()}`, name: 'لون جديد', hex: '#8e6e7d', available: true, stockMeters: editing.stockMeters }])}
+                            onClick={() => setField('colors', [...editing.colors, { id: `color-${editing.colors.length + 1}-${Date.now()}`, name: 'لون جديد', hex: '#8e6e7d', available: true, stockPieces: editing.stockPieces }])}
                           >
                             <Plus size={14} /> إضافة لون
                           </button>

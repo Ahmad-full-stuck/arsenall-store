@@ -19,7 +19,7 @@
     "faqs": [],
     "isNew": true,
     "isFeatured": true,
-    "stockMeters": 50,
+    "stockPieces": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
     "sourceUrl": "https://www.instagram.com/a.arsenall/"
   },
@@ -43,7 +43,7 @@
     "faqs": [],
     "isNew": true,
     "isFeatured": true,
-    "stockMeters": 50,
+    "stockPieces": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
     "sourceUrl": "https://www.instagram.com/a.arsenall/"
   },
@@ -68,7 +68,7 @@
     "faqs": [],
     "isNew": true,
     "isFeatured": false,
-    "stockMeters": 50,
+    "stockPieces": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
     "sourceUrl": "https://www.instagram.com/a.arsenall/"
   }

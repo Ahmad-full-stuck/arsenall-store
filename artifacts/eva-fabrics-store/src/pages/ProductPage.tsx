@@ -90,7 +90,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
   }, [activeIsVideo, product?.id])
 
   const soldOut = product ? isSoldOut(product) : false
-  const maxLength = product ? (soldOut ? 0 : product.stockMeters > 0 ? product.stockMeters : 1000) : 0
+  const maxLength = product ? (soldOut ? 0 : product.stockPieces > 0 ? product.stockPieces : 1000) : 0
 
   useEffect(() => {
     if (maxLength <= 0) return
@@ -204,9 +204,9 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
           if (!Number.isFinite(next)) return
           setLength(Math.min(Math.max(0.5, next), Math.max(0.5, maxLength)))
         }} aria-label={t('pd.piecesInputAria')} /><em>{t('pd.unitPieces')}</em></label>
-        <div className="line-total"><span>{t('pd.lineTotal').replace('{meters}', piecesLabel(length)).replace('{price}', formatPrice(product.price))}</span><strong>{formatPrice(product.price * length)}</strong></div>
+        <div className="line-total"><span>{t('pd.lineTotal').replace('{pieces}', piecesLabel(length)).replace('{price}', formatPrice(product.price))}</span><strong>{formatPrice(product.price * length)}</strong></div>
         <button ref={addBtnRef} type="button" className="button button-primary detail-add" onClick={add} disabled={maxLength <= 0}><ShoppingBag size={17} />{maxLength <= 0 ? t('pd.unavailable') : t('pd.addCart')}<ArrowLeft size={16} /></button>
-        {justAdded && maxLength > 0 && <div className="add-confirm" role="status"><span><Check size={16} />{t('pd.addedToast').replace('{meters}', formatPieces(length)).replace('{name}', product.name)}</span><Link href="/checkout" className="button button-primary">{t('pd.checkoutNow')} <ArrowLeft size={15} /></Link></div>}
+        {justAdded && maxLength > 0 && <div className="add-confirm" role="status"><span><Check size={16} />{t('pd.addedToast').replace('{pieces}', formatPieces(length)).replace('{name}', product.name)}</span><Link href="/checkout" className="button button-primary">{t('pd.checkoutNow')} <ArrowLeft size={15} /></Link></div>}
         <div className="detail-perks"><div><ShieldCheck size={17} /><span>{t('pd.perkDelivery')}</span></div><div><Zap size={17} /><span>{t('pd.perkOneBox')}</span></div></div>
         <div className="detail-accordions"><Accordion id="specs" title={t('pd.specsTitle')} open={openSection === 'specs'} onToggle={() => setOpenSection(openSection === 'specs' ? '' : 'specs')}><div className="specs-grid"><Spec label={t('pd.spec.composition')} value={product.specs.composition} /><Spec label={t('pd.spec.width')} value={product.specs.width} /><Spec label={t('pd.spec.weight')} value={product.specs.weight} /><Spec label={t('pd.spec.stretch')} value={product.specs.stretch} /><Spec label={t('pd.spec.opacity')} value={product.specs.opacity} /><Spec label={t('pd.spec.finish')} value={product.specs.finish} /><Spec label={t('pd.spec.use')} value={product.specs.use} /><Spec label={t('pd.spec.care')} value={product.specs.care} /></div></Accordion><Accordion id="faq" title={t('pd.faqTitle')} open={openSection === 'faq'} onToggle={() => setOpenSection(openSection === 'faq' ? '' : 'faq')}><div className="product-faq-list">{faqItems.map((item) => <div key={item.question}><strong>{item.question}</strong><p>{item.answer}</p></div>)}</div></Accordion><Accordion id="shipping" title={t('pd.shippingTitle')} open={openSection === 'shipping'} onToggle={() => setOpenSection(openSection === 'shipping' ? '' : 'shipping')}><p className="accordion-text">{t('pd.shippingText')}</p></Accordion></div>
       </section>
@@ -259,7 +259,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
         </section>
       )
     })()}
-    <div className={`mobile-sticky-buy ${showStickyBuy ? 'is-visible' : ''}`}><span><small>{formatPieces(length)}</small><strong>{formatPrice(product.price * length)}</strong></span>{justAdded ? <Link href="/checkout" className="button button-primary">{t('pd.checkout')} <ArrowLeft size={15} /></Link> : <button type="button" className="button button-primary" onClick={add} disabled={maxLength <= 0}>{t('pd.addLength').replace('{meters}', formatPieces(length))}</button>}</div>
+    <div className={`mobile-sticky-buy ${showStickyBuy ? 'is-visible' : ''}`}><span><small>{formatPieces(length)}</small><strong>{formatPrice(product.price * length)}</strong></span>{justAdded ? <Link href="/checkout" className="button button-primary">{t('pd.checkout')} <ArrowLeft size={15} /></Link> : <button type="button" className="button button-primary" onClick={add} disabled={maxLength <= 0}>{t('pd.addLength').replace('{pieces}', formatPieces(length))}</button>}</div>
     <Modal open={zoomOpen} onClose={() => setZoomOpen(false)} title={t('pd.zoomTitle').replace('{name}', product.name)} className="image-modal"><button type="button" className="modal-close" onClick={() => setZoomOpen(false)} aria-label={t('pd.closeImage')}>×</button><img src={(gallery[activeImage] === product.video ? product.image : gallery[activeImage]) || product.image} alt={t('pd.zoomAlt').replace('{name}', product.name)} decoding="async" /></Modal>
   </main>
 }

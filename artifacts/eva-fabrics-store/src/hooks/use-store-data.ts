@@ -48,7 +48,7 @@ const stockFrom = (value: unknown, fallback: number): number => {
   return fallback
 }
 
-const normalizeColor = (value: unknown, index: number, stockMeters: number, primaryColorName: string, productAvailable: boolean): ProductColor => {
+const normalizeColor = (value: unknown, index: number, stockPieces: number, primaryColorName: string, productAvailable: boolean): ProductColor => {
   const available = productAvailable
   if (typeof value === 'string') {
     const isHex = /^#[0-9a-f]{3,8}$/i.test(value)
@@ -57,17 +57,17 @@ const normalizeColor = (value: unknown, index: number, stockMeters: number, prim
       name: isHex ? (index === 0 && primaryColorName ? primaryColorName : `لون ${index + 1}`) : value,
       hex: isHex ? value : '#8e6e7d',
       available,
-      stockMeters: available ? stockMeters : 0,
+      stockPieces: available ? stockPieces : 0,
     }
   }
-  if (!isRecord(value)) return { id: `color-${index + 1}`, name: `لون ${index + 1}`, hex: '#8e6e7d', available, stockMeters: available ? stockMeters : 0 }
-  const colorStock = stockFrom(value.stockMeters ?? value.inventory ?? value.stock, stockMeters)
+  if (!isRecord(value)) return { id: `color-${index + 1}`, name: `لون ${index + 1}`, hex: '#8e6e7d', available, stockPieces: available ? stockPieces : 0 }
+  const colorStock = stockFrom(value.stockPieces ?? value.inventory ?? value.stock, stockPieces)
   return {
     id: textFrom(value.id, `color-${index + 1}`),
     name: textFrom(value.name ?? value.color, index === 0 && primaryColorName ? primaryColorName : `لون ${index + 1}`),
     hex: /^#[0-9a-f]{3,8}$/i.test(String(value.hex)) ? String(value.hex) : '#8e6e7d',
     available: productAvailable && booleanFrom(value.available, colorStock > 0) && colorStock > 0,
-    stockMeters: productAvailable ? colorStock : 0,
+    stockPieces: productAvailable ? colorStock : 0,
   }
 }
 
@@ -103,12 +103,12 @@ const normalizeProduct = (value: unknown, index: number): Product | null => {
   if (!name || !slug) return null
   const image = textFrom(value.image, '')
   const imageList = Array.isArray(value.images) ? value.images.filter((item): item is string => typeof item === 'string' && item.length > 0) : []
-  const stockMeters = stockFrom(value.stockMeters ?? value.stockQuantity ?? value.inventory ?? value.stock, 10)
+  const stockPieces = stockFrom(value.stockPieces ?? value.stockQuantity ?? value.inventory ?? value.stock, 10)
   const productAvailable = booleanFrom(value.inStock, true)
   const primaryColorName = textFrom(value.color, '')
   const colors = Array.isArray(value.colors) && value.colors.length > 0
-    ? value.colors.map((item, colorIndex) => normalizeColor(item, colorIndex, stockMeters, primaryColorName, productAvailable))
-    : [normalizeColor({}, 0, stockMeters, primaryColorName, productAvailable)]
+    ? value.colors.map((item, colorIndex) => normalizeColor(item, colorIndex, stockPieces, primaryColorName, productAvailable))
+    : [normalizeColor({}, 0, stockPieces, primaryColorName, productAvailable)]
   return {
     id: textFrom(value.id, slug),
     slug,
@@ -126,7 +126,7 @@ const normalizeProduct = (value: unknown, index: number): Product | null => {
     isNew: booleanFrom(value.isNew, false),
     isFeatured: booleanFrom(value.isFeatured, true),
     colorsEnabled: booleanFrom(value.colorsEnabled, Array.isArray(value.colors) && value.colors.length > 0),
-    stockMeters,
+    stockPieces,
     sourceUrl: textFrom(value.sourceUrl, ''),
     video: textFrom(value.video, '') || undefined,
     createdAt: textFrom(value.createdAt, new Date().toISOString().slice(0, 10)),

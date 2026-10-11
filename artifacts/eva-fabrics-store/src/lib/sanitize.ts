@@ -24,7 +24,7 @@ const emptySpecs = (): ProductSpecs => ({
   use: '',
 })
 
-const sanitizeColor = (value: unknown, index: number, stockMeters: number): ProductColor | null => {
+const sanitizeColor = (value: unknown, index: number, stockPieces: number): ProductColor | null => {
   if (!isRecord(value)) return null
   const id = text(value.id) || `color-${index + 1}`
   const name = text(value.name) || 'لون'
@@ -33,19 +33,19 @@ const sanitizeColor = (value: unknown, index: number, stockMeters: number): Prod
     name,
     hex: text(value.hex, '#8e6e7d'),
     available: value.available !== false,
-    stockMeters: Math.max(0, number(value.stockMeters, stockMeters)),
+    stockPieces: Math.max(0, number(value.stockPieces, stockPieces)),
   }
   const image = text(value.image)
   if (image) color.image = image
   return color
 }
 
-const defaultColor = (stockMeters: number): ProductColor => ({
+const defaultColor = (stockPieces: number): ProductColor => ({
   id: 'default',
   name: 'اللون الأساسي',
   hex: '#8e6e7d',
   available: true,
-  stockMeters,
+  stockPieces,
 })
 
 /** A backup file (or a hand-edited localStorage value) must never be able to
@@ -58,7 +58,7 @@ export const sanitizeProduct = (value: unknown): Product | null => {
 
   const images = list(value.images).filter((item): item is string => typeof item === 'string' && item.length > 0)
   const image = text(value.image) || images[0] || ''
-  const stockMeters = Math.max(0, number(value.stockMeters))
+  const stockPieces = Math.max(0, number(value.stockPieces))
   const rawSpecs = isRecord(value.specs) ? value.specs : {}
   const specs: ProductSpecs = {
     ...emptySpecs(),
@@ -77,7 +77,7 @@ export const sanitizeProduct = (value: unknown): Product | null => {
     .map((item) => ({ question: text(item.question), answer: text(item.answer) }))
     .filter((item) => item.question.length > 0)
   const colors = list(value.colors)
-    .map((item, index) => sanitizeColor(item, index, stockMeters))
+    .map((item, index) => sanitizeColor(item, index, stockPieces))
     .filter((item): item is ProductColor => item !== null)
   const product: Product = {
     id: text(value.id) || slug,
@@ -89,12 +89,12 @@ export const sanitizeProduct = (value: unknown): Product | null => {
     price: Math.max(0, number(value.price)),
     image,
     images: images.length ? images : [image],
-    colors: colors.length ? colors : [defaultColor(stockMeters)],
+    colors: colors.length ? colors : [defaultColor(stockPieces)],
     specs,
     faqs,
     isNew: value.isNew === true,
     isFeatured: value.isFeatured === true,
-    stockMeters,
+    stockPieces,
     createdAt: text(value.createdAt) || new Date().toISOString(),
   }
   const compareAtPrice = number(value.compareAtPrice, 0)

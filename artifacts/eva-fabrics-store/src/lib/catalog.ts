@@ -66,14 +66,14 @@ export const formatPieces = (value: number): string => (value === 0.5
   ? tr('core.piecesShortHalf')
   : `${value.toLocaleString(getCurrentLang() === 'en' ? 'en-US' : 'ar-IQ', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${tr('core.piecesShortUnit')}`)
 
-export const normalizeHalfMeters = (value: number): number => {
+export const normalizeHalfPieces = (value: number): number => {
   if (!Number.isFinite(value) || value <= 0) return 0
   return Math.max(0.5, Math.ceil(value * 2) / 2)
 }
 
-export const availableMeters = (product: Product, color?: ProductColor): number => {
+export const availablePieces = (product: Product, color?: ProductColor): number => {
   if (color?.available === false) return 0
-  return product.stockMeters > 0 ? product.stockMeters : 1000
+  return product.stockPieces > 0 ? product.stockPieces : 1000
 }
 
 export const isSoldOut = (product: Product): boolean =>

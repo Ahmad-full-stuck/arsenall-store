@@ -118,9 +118,9 @@ injectStyles('eva-glass-styles', glassStyles)
 
 export function ProductCard({ product, wished, onWish, onAdd, priority = false }: ProductCardProps) {
   const { t, lang } = useT()
-  const addColor = product.colors.find((color) => color.available && color.stockMeters > 0) || product.colors[0]
+  const addColor = product.colors.find((color) => color.available && color.stockPieces > 0) || product.colors[0]
   const soldOut = !addColor || isSoldOut(product)
-  const lowStock = !soldOut && product.stockMeters > 0 && product.stockMeters <= 3
+  const lowStock = !soldOut && product.stockPieces > 0 && product.stockPieces <= 3
   const wishLabel = wished ? t('card.wishRemove').replace('{name}', product.name) : t('card.wishAdd').replace('{name}', product.name)
   const addLabel = t('card.addHalfAria').replace('{name}', product.name)
   const detailPath = `/product/${product.slug}`

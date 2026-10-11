@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, Minus, Pencil, Plus, ShieldCheck, ShoppingBag, Trash2, Truck } from 'lucide-react'
 import { Link } from 'wouter'
 import type { CartItem } from '@/types'
-import { availableMeters, formatDinar, formatPieces, formatPrice, getCartTotals, orderKey } from '@/lib/catalog'
+import { availablePieces, formatDinar, formatPieces, formatPrice, getCartTotals, orderKey } from '@/lib/catalog'
 import { useT } from '@/lib/i18n'
 import { typeLabelsEn } from '@/lib/strings/product'
 import { useStoreSettings } from '@/lib/site-content'
@@ -102,7 +102,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
 
   const handleUpdate = (item: CartItem, nextLength: number) => {
     onUpdate(orderKey(item), nextLength)
-    setAnnouncement(t('cart.updated').replace('{name}', item.product.name).replace('{meters}', formatPieces(nextLength)))
+    setAnnouncement(t('cart.updated').replace('{name}', item.product.name).replace('{pieces}', formatPieces(nextLength)))
   }
 
   const handleRemove = (item: CartItem) => {
@@ -141,7 +141,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
         <div>
           <span className="eyebrow">{t('cart.eyebrow')}</span>
           <h1>{t('cart.title')}</h1>
-          <p>{t('cart.inCart').replace('{meters}', formatPieces(meters))}</p>
+          <p>{t('cart.inCart').replace('{pieces}', formatPieces(meters))}</p>
         </div>
         <Link href="/catalog" className="underlined-link">{t('cart.continue')} <ArrowLeft size={15} /></Link>
       </div>
@@ -150,7 +150,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
           <div className="sr-only" role="status" aria-live="polite">{announcement}</div>
           {cart.map((item) => {
             const key = orderKey(item)
-            const maxMeters = availableMeters(item.product, item.color)
+            const maxPieces = availablePieces(item.product, item.color)
             const lineTotal = item.product.price * item.length
             return (
               <article className="cart-item" key={key}>
@@ -175,7 +175,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
                     <div className="quantity-control compact">
                       <button type="button" onClick={() => handleUpdate(item, item.length - 0.5)} disabled={item.length <= 0.5} aria-label={t('cart.decreaseAria').replace('{name}', item.product.name)}><Minus size={15} /></button>
                       <output aria-label={t('cart.qtyAria').replace('{name}', item.product.name)}>{formatPieces(item.length)}</output>
-                      <button type="button" onClick={() => handleUpdate(item, item.length + 0.5)} disabled={item.length >= maxMeters} aria-label={t('cart.increaseAria').replace('{name}', item.product.name)}><Plus size={15} /></button>
+                      <button type="button" onClick={() => handleUpdate(item, item.length + 0.5)} disabled={item.length >= maxPieces} aria-label={t('cart.increaseAria').replace('{name}', item.product.name)}><Plus size={15} /></button>
                     </div>
                     <div className="cart-item-total">
                       <small>{formatPieces(item.length)} × {formatPrice(item.product.price)}</small>

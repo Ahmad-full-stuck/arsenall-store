@@ -1,5 +1,5 @@
 import type { CartItem, Product, ProductColor } from '@/types'
-import { availableMeters, normalizeHalfMeters, orderKey } from './catalog'
+import { availablePieces, normalizeHalfPieces, orderKey } from './catalog'
 
 const CART_KEY = 'eva-fabrics-cart-v1'
 const WISHLIST_KEY = 'eva-fabrics-wishlist-v1'
@@ -32,11 +32,11 @@ const findColor = (product: Product, id: string): ProductColor => product.colors
   name: 'اللون المختار',
   hex: '#c8b7aa',
   available: true,
-  stockMeters: product.stockMeters,
+  stockPieces: product.stockPieces,
 }
 
 const merge = (cart: CartItem[], item: CartItem): CartItem[] => {
-  const max = availableMeters(item.product, item.color)
+  const max = availablePieces(item.product, item.color)
   const key = orderKey(item)
   const existingIndex = cart.findIndex((entry) => orderKey(entry) === key)
   if (max <= 0) return cart
@@ -72,7 +72,7 @@ export const getStoredCart = (products: Product[]): CartItem[] => {
     const signature = `${slug}:${color.id}`
     if (seen.has(signature)) continue
     const lengthValue = typeof record.length === 'number' ? record.length : typeof record.quantity === 'number' ? record.quantity : 0
-    const length = normalizeHalfMeters(lengthValue)
+    const length = normalizeHalfPieces(lengthValue)
     if (!length) continue
     seen.add(signature)
     result = merge(result, { product, color, length })
@@ -86,8 +86,8 @@ export const addCartItem = (
   color: ProductColor,
   requestedLength: number,
 ): { cart: CartItem[]; added: number; capped: boolean; available: boolean } => {
-  const available = availableMeters(product, color)
-  const length = normalizeHalfMeters(requestedLength)
+  const available = availablePieces(product, color)
+  const length = normalizeHalfPieces(requestedLength)
   if (available <= 0 || length <= 0) return { cart, added: 0, capped: false, available: false }
   const existing = cart.find((item) => orderKey(item) === orderKey({ product, color }))
   const current = existing?.length || 0
@@ -98,8 +98,8 @@ export const addCartItem = (
 export const updateCartItem = (cart: CartItem[], key: string, requestedLength: number): CartItem[] => {
   const item = cart.find((entry) => orderKey(entry) === key)
   if (!item) return cart
-  const max = availableMeters(item.product, item.color)
-  const nextLength = normalizeHalfMeters(requestedLength)
+  const max = availablePieces(item.product, item.color)
+  const nextLength = normalizeHalfPieces(requestedLength)
   if (max <= 0 || nextLength <= max) return nextLength > 0 ? cart.map((entry) => orderKey(entry) === key ? { ...entry, length: nextLength } : entry) : cart.filter((entry) => orderKey(entry) !== key)
   return cart.map((entry) => orderKey(entry) === key ? { ...entry, length: max } : entry)
 }
@@ -115,7 +115,7 @@ export const reconcileCart = (cart: CartItem[], products: Product[]): CartItem[]
     const color = findColor(product, item.color.id)
     const signature = `${product.slug}:${color.id}`
     if (seen.has(signature)) continue
-    const length = Math.min(item.length, availableMeters(product, color))
+    const length = Math.min(item.length, availablePieces(product, color))
     if (length <= 0) continue
     seen.add(signature)
     result = merge(result, { product, color, length })
