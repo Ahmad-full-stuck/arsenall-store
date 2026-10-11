@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { ArrowLeft, BadgeCheck, ChevronDown, MessageCircle, Sparkles, Truck, Wallet } from 'lucide-react'
 import { Link } from 'wouter'
 import type { Category, Product, ProductColor } from '@/types'
@@ -32,14 +32,11 @@ const discoveryQuestions = [
 const engineValue = (key: string): string => discoveryEngineValues[key] || ''
 
 const CATEGORY_IMAGES: Record<string, { src: string; w: number; h: number }> = {
-  style: { src: 'home/cat-style.jpg', w: 1440, h: 1920 },
-  embroidered: { src: 'home/cat-embroidered.jpg', w: 1440, h: 1440 },
-  plain: { src: 'home/cat-plain.jpg', w: 1440, h: 1440 },
-  stretch: { src: 'home/cat-stretch.jpg', w: 1440, h: 1440 },
-  sequined: { src: 'home/cat-sequined.jpg', w: 1215, h: 2160 },
-  patterned: { src: 'home/cat-patterned.jpg', w: 1440, h: 1440 },
-  harvard: { src: 'home/cat-harvard.jpg', w: 1440, h: 1440 },
+  jerseys: { src: 'products/arsenall/01.webp', w: 1440, h: 1440 },
+  tshirts: { src: 'products/arsenall/04.webp', w: 1440, h: 1440 },
+  shorts: { src: 'products/arsenall/07.webp', w: 1440, h: 1440 },
 }
+
 
 export function HomePage({ products, categories, wishlist, onWish, onAdd }: HomePageProps) {
   const { lang, t } = useT()

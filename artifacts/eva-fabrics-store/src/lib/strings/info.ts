@@ -6,7 +6,7 @@ export const infoStrings: Record<string, StringEntry> = {
   // ── About ────────────────────────────────────────────────────────────────
   'about.crumbHome': { ar: 'الرئيسية', en: 'Home' },
   'about.crumbCurrent': { ar: 'من نحن', en: 'About us' },
-  'about.eyebrow': { ar: 'من سبورت ستور إليك', en: 'From Sport Store to you' },
+  'about.eyebrow': { ar: 'من Arsenall إليك', en: 'From Arsenall to you' },
   'about.chipOrder': { ar: 'طلب من قطعة واحدة', en: 'Orders from half a piece' },
   'about.chipSpecs': { ar: 'مواصفات مكتوبة', en: 'Written specs' },
   'about.chipDelivery': { ar: 'توصيل لكل العراق', en: 'Delivery across Iraq' },
@@ -33,7 +33,7 @@ export const infoStrings: Record<string, StringEntry> = {
     en: 'Today you find it all in one place: a showroom of {count} products with written specs, orders from half a piece, delivery to every Iraqi governorate and a manual confirmation for each order.',
   },
   'about.statsEyebrow': { ar: 'أرقام تختصر الرحلة', en: 'Numbers that sum up the journey' },
-  'about.statsTitle': { ar: 'سبورت ستور في أرقام', en: 'Sport Store in numbers' },
+  'about.statsTitle': { ar: 'Arsenall في أرقام', en: 'Arsenall in numbers' },
   'about.statsText': { ar: 'أرقام فعلية من المعرض ومن مكتبة المنشورات على إنستغرام.', en: 'Real numbers from the showroom and our Instagram post library.' },
   'about.stat1Label': { ar: 'خامة في المعرض', en: 'Products in the showroom' },
   'about.stat1Note': { ar: 'كلها بصورة ومواصفات مكتوبة', en: 'All with photos and written specs' },
@@ -248,8 +248,8 @@ export const infoStrings: Record<string, StringEntry> = {
   'contact.browse': { ar: 'تصفحي المنتجات', en: 'Browse products' },
   'contact.footnote': { ar: 'نستخدم بياناتك للتواصل بشأن استفسارك فقط، ويمكنك مراجعة تفاصيل ذلك في', en: 'We use your details only to respond to your inquiry, and you can review the details in' },
   'contact.footnoteLink': { ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
-  'contact.emailSubject': { ar: 'رسالة من صفحة تواصل سبورت ستور', en: 'Message from the Sport Store contact page' },
-  'contact.emailBody': { ar: 'مرحباً سبورت ستور،\nالاسم: {name}\nالهاتف: {phone}\n{message}', en: 'Hello Sport Store,\nName: {name}\nPhone: {phone}\n{message}' },
+  'contact.emailSubject': { ar: 'رسالة من صفحة تواصل Arsenall', en: 'Message from the Arsenall contact page' },
+  'contact.emailBody': { ar: 'مرحباً Arsenall،\nالاسم: {name}\nالهاتف: {phone}\n{message}', en: 'Hello Arsenall,\nName: {name}\nPhone: {phone}\n{message}' },
 
   // ── Policies ─────────────────────────────────────────────────────────────
   'policies.crumbHome': { ar: 'الرئيسية', en: 'Home' },
@@ -265,7 +265,7 @@ export const infoStrings: Record<string, StringEntry> = {
   'policies.cta': { ar: 'لديك سؤال آخر؟ تواصلي معنا', en: 'Have another question? Contact us' },
   'policies.termsTitle': { ar: 'شروط الاستخدام', en: 'Terms of use' },
   'policies.termsIntro': {
-    ar: 'باستخدامك موقع سبورت ستور فإنك تقرّين بصحة البيانات التي تدخلينها وأن الهدف من الموقع هو طلب المنتجات المتاحة لدينا.',
+    ar: 'باستخدامك موقع Arsenall فإنك تقرّين بصحة البيانات التي تدخلينها وأن الهدف من الموقع هو طلب المنتجات المتاحة لدينا.',
     en: 'By using the Eva Store website you confirm that the details you enter are accurate and that the site is meant for ordering the products we offer.',
   },
   'policies.termsPoint1': { ar: 'الأسعار والمواصفات والألوان قابلة للتحديث، ويظهر السعر النهائي في مراجعة الطلب قبل التأكيد.', en: 'Prices, specs and colors may be updated, and the final price appears in the order review before you confirm.' },
@@ -366,7 +366,7 @@ export const infoStrings: Record<string, StringEntry> = {
   'confirm.track': { ar: 'تتبّع الطلب', en: 'Track order' },
   'confirm.ask': { ar: 'راسلينا عبر الموقع', en: 'Message us on the site' },
   'confirm.eyebrow': { ar: 'تم استلام طلبك', en: 'We received your order' },
-  'confirm.title': { ar: 'شكراً لاختيارك سبورت ستور.', en: 'Thank you for choosing Sport Store.' },
+  'confirm.title': { ar: 'شكراً لاختيارك Arsenall.', en: 'Thank you for choosing Arsenall.' },
   'confirm.text': {
     ar: 'سنراجع تفاصيل طلبك ونتواصل معك لتأكيد التوصيل. احتفظي برقم الطلب لمتابعة حالته في أي وقت.',
     en: 'We will review your order and contact you to confirm delivery. Keep the order number to check its status at any time.',

@@ -2,10 +2,10 @@
   {
     "id": "arsenall-01",
     "slug": "arsenall-01",
-    "name": "زي أرسنال 2026 — Arsenall",
-    "type": "ملابس رياضية",
+    "name": "زي أرسنال الرسمي 2026",
+    "type": "زي رسمي",
     "categoryId": "jerseys",
-    "description": "زي أرسنال الرسمي لموسم 2026 — جودة أصلية من Arsenall.",
+    "description": "زي أرسنال الرسمي لموسم 2026 — جودة أصلية بطباعة احترافية من Arsenall.",
     "price": 30000,
     "image": "products/arsenall/01.webp",
     "images": [
@@ -19,17 +19,17 @@
     "faqs": [],
     "isNew": true,
     "isFeatured": true,
-    "stockMeters": 55,
+    "stockMeters": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
     "sourceUrl": "https://www.instagram.com/a.arsenall/"
   },
   {
     "id": "arsenall-02",
     "slug": "arsenall-02",
-    "name": "تيشيرت أرسنال — Arsenall",
-    "type": "ملابس رياضية",
-    "categoryId": "jerseys",
-    "description": "تيشيرت أرسنال أصلي — قطن عالي الجودة وطباعة احترافية.",
+    "name": "تيشيرت فريق مميز",
+    "type": "تيشيرت",
+    "categoryId": "tshirts",
+    "description": "تيشيرت فريق كرة قدم بتصميم مميز — قطن عالي الجودة وطباعة احترافية.",
     "price": 20000,
     "image": "products/arsenall/04.webp",
     "images": [
@@ -43,17 +43,17 @@
     "faqs": [],
     "isNew": true,
     "isFeatured": true,
-    "stockMeters": 80,
+    "stockMeters": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
     "sourceUrl": "https://www.instagram.com/a.arsenall/"
   },
   {
     "id": "arsenall-03",
     "slug": "arsenall-03",
-    "name": "شورت أرسنال — Arsenall",
-    "type": "ملابس رياضية",
-    "categoryId": "jerseys",
-    "description": "شورت أرسنال الرسمي — مريح وعملي للرياضة والمشاهدة.",
+    "name": "شورت رياضي رسمي",
+    "type": "شورت",
+    "categoryId": "shorts",
+    "description": "شورت رياضي رسمي مريح — مناسب للتمارين ومتابعة المباريات.",
     "price": 15000,
     "image": "products/arsenall/07.webp",
     "images": [
@@ -68,7 +68,7 @@
     "faqs": [],
     "isNew": true,
     "isFeatured": false,
-    "stockMeters": 65,
+    "stockMeters": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
     "sourceUrl": "https://www.instagram.com/a.arsenall/"
   }

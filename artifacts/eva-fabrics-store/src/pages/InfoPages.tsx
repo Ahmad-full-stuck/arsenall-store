@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
+﻿import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import { ArrowLeft, BadgeCheck, Check, ChevronDown, Clock, Copy as CopyIcon, Heart, Layers, MapPin, Mail, MessageCircle, PackageCheck, Ruler, RotateCcw, Scissors, Search, Send, ShieldCheck, Sparkles, Truck } from 'lucide-react'
 import { Link, useLocation, useSearch } from 'wouter'
 import type { ProductFaq } from '@/types'

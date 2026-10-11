@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react'
+﻿import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react'
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Layers, LayoutGrid, Sparkles, Truck, Wallet } from 'lucide-react'
 import { Link } from 'wouter'
 import type { Category, Product } from '@/types'
@@ -33,10 +33,10 @@ export function HeroSection({ products, categories }: HeroSectionProps) {
   ]
 
   const slides = [
-    { src: 'home/hero-1.jpg', alt: t('home.slide.colorful') },
-    { src: 'home/hero-2.jpg', alt: t('home.slide.sequin') },
-    { src: 'home/hero-3.jpg', alt: t('home.slide.pearl') },
-    { src: 'home/hero-4.jpg', alt: t('home.slide.stripe') },
+    { src: 'products/arsenall/01.webp', alt: t('home.slide.colorful') },
+    { src: 'products/arsenall/04.webp', alt: t('home.slide.sequin') },
+    { src: 'products/arsenall/07.webp', alt: t('home.slide.pearl') },
+    { src: 'products/arsenall/02.webp', alt: t('home.slide.stripe') },
   ]
   const [activeSlide, setActiveSlide] = useState(0)
   const timerRef = useRef<number | undefined>(undefined)

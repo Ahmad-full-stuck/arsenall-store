@@ -33,7 +33,7 @@ export const headerStrings: Record<string, StringEntry> = {
   'foot.nav.tracking': { ar: 'تتبّع الطلب', en: 'Track order' },
   'foot.nav.contact': { ar: 'تواصلي معنا', en: 'Contact us' },
   'foot.nav.policies': { ar: 'السياسات', en: 'Policies' },
-  'foot.tagline': { ar: 'متجر رياضي عربي يساعدك على معرفة المنتج والمرونة واللون قبل اختيار القطعة.', en: 'An Arabic product showroom that helps you understand the material, stretch and colour before you pick your piece.' },
+  'foot.tagline': { ar: 'ملابس كرة القدم', en: 'Football Clothing' },
   'foot.contactViaSite': { ar: 'تواصلي معنا عبر الموقع', en: 'Contact us on the site' },
   'foot.colProducts': { ar: 'المنتجات', en: 'Products' },
   'foot.allProducts': { ar: 'كل المنتجات', en: 'All products' },
@@ -58,7 +58,7 @@ export const headerStrings: Record<string, StringEntry> = {
   'home.storyEyebrow': { ar: 'قصة العلامة', en: 'Our story' },
   'home.storyImageAlt': { ar: 'صوف ميتالك', en: 'Metallic wool' },
   'home.storyText2': { ar: 'نصمم تجربتنا لتكون قريبة منك: صور واضحة، مواصفات مفهومة، وخدمة تساعدك قبل الطلب وبعده.', en: 'We design our experience to stay close to you: clear photos, understandable specs, and support before and after you order.' },
-  'home.storyCta': { ar: 'اعرفي أكثر عن سبورت ستور', en: 'Learn more about Sport Store' },
+  'home.storyCta': { ar: 'اعرفي أكثر عن Arsenall', en: 'Learn more about Arsenall' },
   'home.trustAria': { ar: 'ضمانات المتجر', en: 'Store guarantees' },
   'home.faq.questionNumber': { ar: 'سؤال {n}', en: 'Question {n}' },
 
@@ -118,7 +118,7 @@ export const headerStrings: Record<string, StringEntry> = {
   'home.newsletter.sent': { ar: 'تم تسجيل بريدك في النشرة، ستصلك أحدث القطع والأخبار.', en: 'Your email is on the list — the latest pieces and news will reach your inbox.' },
   'home.newsletter.noteLead': { ar: 'أو اطلبي استشارة في اختيار المنتج عبر', en: 'Or ask for help choosing your product through' },
   'home.newsletter.noteLink': { ar: 'نموذج التواصل في الموقع', en: 'the contact form on the site' },
-  'home.newsletter.subject': { ar: 'اشتراك في نشرة سبورت ستور', en: 'Sport Store newsletter subscription' },
+  'home.newsletter.subject': { ar: 'اشتراك في نشرة Arsenall', en: 'Arsenall newsletter subscription' },
   'home.newsletter.body': { ar: 'طلب اشتراك في النشرة من الموقع\nالبريد: {email}', en: 'Newsletter subscription request from the website\nEmail: {email}' },
 
   'home.hero.browse': { ar: 'تصفحي المنتجات', en: 'Browse products' },
@@ -176,7 +176,7 @@ export const trustItemsEn: { title: string; description: string; icon: string }[
 
 export const homeStoryEn = {
   title: 'Products worth choosing with confidence',
-  text: 'Sport Store is an Iraqi sports store that brings together products from the best brands — clothing, shoes and accessories with original quality and delivery to all Iraqi governorates.',
+  text: 'Arsenall is an Iraqi sports store that brings together products from the best brands — clothing, shoes and accessories with original quality and delivery to all Iraqi governorates.',
 }
 
 export const guideQuestionsEn: { question: string; answer: string }[] = [

@@ -43,7 +43,7 @@ export const trustItems = [
 ] as const
 
 export const homeStory = {
-  title: 'Arsenall — ملابس كرة القدم',
+  title: 'شغف كرة القدم في كل قطعة',
   text: 'متجر Arsenall: ملابس كرة القدم الأصلية — أزياء، تيشيرتات، وشورتات من أشهر الأندية.',
 }
 
