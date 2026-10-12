@@ -44,9 +44,4 @@ export const apiUrl = (path: string): string => `${apiBase}${path.startsWith('/'
 
 export const phoneDigits = digits
 
-const isTouchDevice = (): boolean =>
-  typeof window !== 'undefined' &&
-  typeof window.matchMedia === 'function' &&
-  window.matchMedia('(pointer: coarse)').matches
 
-export const telProps = (phone: string): { href?: string } => ({ href: isTouchDevice() ? `tel:${phone}` : undefined })

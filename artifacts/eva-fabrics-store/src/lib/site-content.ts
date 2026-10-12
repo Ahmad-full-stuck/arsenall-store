@@ -47,8 +47,8 @@ export interface SiteContent {
 
 export const defaultSiteContent: SiteContent = {
   shopName: 'Arsenall',
-  phone: '07727282001',
-  whatsapp: '9647727282001',
+  phone: '',
+  whatsapp: '',
   instagram: 'https://www.instagram.com/a.arsenall/',
   announcementRight: 'شحن إلى جميع محافظات العراق',
   announcementLeft: 'ملابس كرة القدم أصلية 100%',
