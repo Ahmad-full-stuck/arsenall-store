@@ -190,7 +190,7 @@ export const infoStrings: Record<string, StringEntry> = {
   'contact.method3Text': { ar: 'إجابات سريعة قبل الاستفسار', en: 'Quick answers before you ask' },
   'contact.hoursTitle': { ar: 'كيف نتواصل', en: 'How to reach us' },
   'contact.hours1Label': { ar: 'الاستفسار والطلب', en: 'Inquiries and orders' },
-  'contact.hours1Value': { ar: 'عبر الواتساب والهاتف — نرد خلال ساعات اليوم', en: 'Via WhatsApp and phone — we reply during the day' },
+  'contact.hours1Value': { ar: 'عبر نموذج التواصل في الموقع', en: 'Through the on-site contact form' },
   'contact.hours2Label': { ar: 'تأكيد الطلب', en: 'Order confirmation' },
   'contact.hours2Value': { ar: 'نتواصل معك قبل الشحن', en: 'We contact you before shipping' },
   'contact.hours3Label': { ar: 'التوصيل', en: 'Delivery' },

@@ -9,7 +9,7 @@ const adminContent = (): Record<string, string> => {
   }
 }
 
-const rawWhatsApp = import.meta.env.VITE_WHATSAPP_NUMBER || '9647727282001'
+const rawWhatsApp = import.meta.env.VITE_WHATSAPP_NUMBER || ''
 const rawInstagram = import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/a.arsenall/'
 const apiBase = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '')
 
@@ -20,7 +20,7 @@ const internationalWhatsApp = (() => {
   if (value.startsWith('00')) value = value.slice(2)
   if (value.startsWith('0')) value = `964${value.slice(1)}`
   if (!value.startsWith('964') && value.length > 0) value = `964${value}`
-  return value || '9647727282001'
+  return value
 })()
 
 const localPhone = (() => {
