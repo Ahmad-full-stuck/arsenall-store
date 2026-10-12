@@ -72,6 +72,7 @@ export const sanitizeProduct = (value: unknown): Product | null => {
     care: text(rawSpecs.care),
     use: text(rawSpecs.use),
   }
+  const sizes = list(value.sizes).filter((item): item is string => typeof item === 'string' && item.length > 0)
   const faqs: ProductFaq[] = list(value.faqs)
     .filter(isRecord)
     .map((item) => ({ question: text(item.question), answer: text(item.answer) }))
@@ -90,6 +91,7 @@ export const sanitizeProduct = (value: unknown): Product | null => {
     image,
     images: images.length ? images : [image],
     colors: colors.length ? colors : [defaultColor(stockPieces)],
+    sizes: sizes.length ? sizes : undefined,
     specs,
     faqs,
     isNew: value.isNew === true,

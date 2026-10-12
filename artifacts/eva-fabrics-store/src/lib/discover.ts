@@ -104,7 +104,7 @@ const GARMENT_RULES: Record<string, Rule> = {
     { points: p.opaque ? 10 : 0, why: 'disc.comfortableCoverage' },
     { points: p.matte && !p.gloss ? -8 : 0, why: 'disc.matteNoShine' },
   ],
-  'عباءة أو برنوش': (p, s) => [
+  'طقم تدريب': (p, s) => [
     { points: has(s, ['عباءة', 'برنوش', 'بنتوش', 'جاكيت', 'شنطة']) ? 30 : 0, why: 'disc.mentionedAbayas' },
     { points: p.opaque ? 20 : 0, why: 'disc.fullCoverage' },
     { points: p.heavy ? 16 : 0, why: 'disc.outerwearWeight' },

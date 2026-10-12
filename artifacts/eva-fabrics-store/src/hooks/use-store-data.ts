@@ -109,6 +109,7 @@ const normalizeProduct = (value: unknown, index: number): Product | null => {
   const colors = Array.isArray(value.colors) && value.colors.length > 0
     ? value.colors.map((item, colorIndex) => normalizeColor(item, colorIndex, stockPieces, primaryColorName, productAvailable))
     : [normalizeColor({}, 0, stockPieces, primaryColorName, productAvailable)]
+  const sizes = Array.isArray(value.sizes) ? value.sizes.filter((item): item is string => typeof item === 'string' && item.length > 0) : []
   return {
     id: textFrom(value.id, slug),
     slug,
@@ -121,6 +122,7 @@ const normalizeProduct = (value: unknown, index: number): Product | null => {
     image,
     images: [image, ...imageList.filter((item) => item !== image)],
     colors,
+    sizes: sizes.length ? sizes : undefined,
     specs: normalizeSpecs(isRecord(value.specs) ? { ...value, ...value.specs } : value),
     faqs: Array.isArray(value.faqs) ? value.faqs.map(normalizeFaq).filter((item): item is ProductFaq => item !== null) : [],
     isNew: booleanFrom(value.isNew, false),

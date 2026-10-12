@@ -25,7 +25,7 @@ interface StoredOrderItem {
   size?: string
   productName: string
   colorName: string
-  meters: number
+  quantity: number
   unitPrice: number
   total: number
 }
@@ -305,7 +305,7 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
       const record: StoredOrder = {
         orderNumber,
         createdAt: new Date().toISOString(),
-        items: payload.items.map((item) => ({ productName: item.productName, colorName: item.colorName, size: item.size, meters: item.quantity, unitPrice: item.unitPrice, total: item.totalPrice })),
+        items: payload.items.map((item) => ({ productName: item.productName, colorName: item.colorName, size: item.size, quantity: item.quantity, unitPrice: item.unitPrice, total: item.totalPrice })),
         subtotal: payload.subtotal,
         deliveryFee: payload.deliveryFee,
         total: payload.total,
@@ -577,11 +577,11 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
           <h2>{t('co.summary')}</h2>
           <div className="checkout-items">
             {cart.map((item) => (
-              <div className="checkout-item" key={`${item.product.slug}-${item.color.id}`}>
+              <div className="checkout-item" key={`${item.product.slug}-${item.color.id}-${item.size || ''}`}>
                 <SmartImage src={item.product.image} alt="" sizes="64px" />
                 <div>
                   <strong>{item.product.name}</strong>
-                  <span>{item.color.name} · {formatPieces(item.length)}</span>
+                  <span>{item.color.name}{item.size ? ` · ${item.size}` : ''} · {formatPieces(item.length)}</span>
                 </div>
                 <b>{formatPrice(item.product.price * item.length)}</b>
               </div>

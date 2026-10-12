@@ -171,9 +171,9 @@ export const discoveryEngineValues: Record<string, string> = {
 
 export const trustItemsEn: { title: string; description: string; icon: string }[] = [
   { title: 'Delivery across Iraq', description: 'All governorates', icon: 'truck' },
-  { title: 'Delivery 5,000 dinars', description: 'Fixed fee', icon: 'wallet' },
+  { title: 'Cash on delivery', description: 'Pay at your door', icon: 'wallet' },
   { title: 'Support on the site', description: 'Before and after you order', icon: 'message' },
-  { title: 'A confident choice', description: 'Clear specifications', icon: 'check' },
+  { title: 'Quality we check', description: 'Checked before shipping', icon: 'check' },
 ]
 
 export const homeStoryEn = {
@@ -182,7 +182,7 @@ export const homeStoryEn = {
 }
 
 export const guideQuestionsEn: { question: string; answer: string }[] = [
-  { question: 'How do I pick the right product?', answer: 'Start with the use: training, running or daily wear. Check the size chart, material and care before you buy.' },
+  { question: 'How do I pick the right product?', answer: 'Start with the use: daily wear, training or sport. Check the size chart, material and care before you buy.' },
   { question: 'What is the difference between sizes M and L?', answer: 'M and L differ by about 4 to 5 cm in chest and waist and about 2 cm in length. Pick L if you prefer a looser fit.' },
   { question: 'How do I know my size?', answer: 'Measure your chest and waist in cm and compare them with the size chart in the size guide.' },
   { question: 'How many pieces are in a set?', answer: 'A training set usually needs two or three pieces: pants or shorts with a tee or hoodie.' },

@@ -184,7 +184,7 @@ export const infoStrings: Record<string, StringEntry> = {
   'contact.method1Text': { ar: 'أرسل رسالتك من هذه الصفحة', en: 'Send your message from this page' },
   'contact.method2Aria': { ar: 'تتبّع حالة طلبك', en: 'Track your order status' },
   'contact.method2Title': { ar: 'تتبّع الطلب', en: 'Order tracking' },
-  'contact.method2Text': { ar: 'اعرفي حالة طلبك برقم الطلب', en: 'Check your order status with the order number' },
+  'contact.method2Text': { ar: 'اعرف حالة طلبك برقم الطلب', en: 'Check your order status with the order number' },
   'contact.method3Aria': { ar: 'افتح دليل المقاسات', en: 'Open the size guide' },
   'contact.method3Title': { ar: 'دليل المقاسات', en: 'Size guide' },
   'contact.method3Text': { ar: 'إجابات سريعة قبل الاستفسار', en: 'Quick answers before you ask' },
@@ -275,7 +275,7 @@ export const infoStrings: Record<string, StringEntry> = {
     en: 'We accept a return or exchange if the product arrives different from the written specs or a mistake was made while fulfilling it. Report the case through the on-site contact form and we agree on the right solution with you.',
   },
   'policies.returnsPoint1': { ar: 'يجب أن يبقى المنتج بحالته الأصلية وغير مستعمل.', en: 'The product must stay in its original condition — unused.' },
-  'policies.returnsPoint2': { ar: 'المنتجات المخصّصة أو المعدّلة حسب طلب العميل غير قابلة للإرجاع.', en: 'Customised or altered products cannot be returned.' },
+  'policies.returnsPoint2': { ar: 'المنتجات المعدّلة أو المخصّصة خصيصاً لك غير قابلة للإرجاع، وباقي المنتجات مقبولة بشرط ألّا تكون مستعملة.', en: 'Products altered or personalised for you cannot be returned; other products are accepted as long as they are unused.' },
   'policies.returnsPoint3': { ar: 'في حال ثبوت خطأ منّا نتحمل رسوم الإرجاع ونشحن البديل على حسابنا.', en: 'If the mistake is ours, we cover the return fee and ship the replacement at our cost.' },
   'policies.returnsPoint4': { ar: 'التواصل الأول يتم عبر نموذج التواصل في الموقع مع إرفاق صورة للمنتج ورقم الطلب.', en: 'Start by using the on-site contact form and attach a photo of the product and the order number.' },
   'policies.returnsNote': { ar: 'اللون المطابق للصور مضمون، والاختلاف البسيط تحت الإضاءة لا يُعد عيباً.', en: 'The color matches the photos; a slight shift under lighting is not considered a defect.' },
@@ -376,7 +376,7 @@ export const infoStrings: Record<string, StringEntry> = {
 
 /** English copy mirroring `guideQuestions` from `@/lib/fallback-data`. */
 export const guideFaqsEn: ProductFaq[] = [
-  { question: 'How do I choose the right product?', answer: 'Start with the use: training, running or daily wear. Check the size chart, material and care before you buy.' },
+  { question: 'How do I choose the right product?', answer: 'Start with the use: daily wear, training or sport. Check the size chart, material and care before you buy.' },
   { question: 'What is the difference between sizes M and L?', answer: 'M and L differ by about 4 to 5 cm in chest and waist and about 2 cm in length. Pick L if you prefer a looser fit.' },
   { question: 'How do I know my size?', answer: 'Measure your chest and waist in cm and compare them with the size chart in the size guide.' },
   { question: 'How many pieces are in a set?', answer: 'A training set usually needs two or three pieces: pants or shorts with a tee or hoodie.' },

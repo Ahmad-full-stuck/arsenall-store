@@ -1,5 +1,5 @@
 import { Heart, Plus, ShoppingBag } from 'lucide-react'
-import { Link } from 'wouter'
+import { Link, useLocation } from 'wouter'
 import type { Product, ProductColor } from '@/types'
 import { useT } from '@/lib/i18n'
 import { formatPrice, isSoldOut } from '@/lib/catalog'
@@ -124,6 +124,7 @@ export function ProductCard({ product, wished, onWish, onAdd, priority = false }
   const wishLabel = wished ? t('card.wishRemove').replace('{name}', product.name) : t('card.wishAdd').replace('{name}', product.name)
   const addLabel = t('card.addHalfAria').replace('{name}', product.name)
   const detailPath = `/product/${product.slug}`
+  const navigate = useLocation()[1]
 
   return (
     <article className="product-card glass-card">
@@ -185,7 +186,7 @@ export function ProductCard({ product, wished, onWish, onAdd, priority = false }
             type="button"
             className="add-button"
             disabled={soldOut}
-            onClick={() => addColor && onAdd(product, addColor, 1)}
+            onClick={() => addColor && (product.sizes && product.sizes.length > 0 ? navigate(detailPath) : onAdd(product, addColor, 1))}
             aria-label={addLabel}
           >
             {soldOut ? t('card.soldOut') : <><ShoppingBag size={14} aria-hidden="true" /><span>{t('card.addHalf')}</span></>}
@@ -210,12 +211,13 @@ export function ProductGridSkeleton() {
 export function InlineAddButton({ product, onAdd }: { product: Product; onAdd: (product: Product, color: ProductColor, length: number, size?: string) => void }) {
   const { t } = useT()
   const color = product.colors.find((item) => item.available)
+  const navigate = useLocation()[1]
   return (
     <button
       type="button"
       className="icon-button"
       disabled={!color}
-      onClick={() => color && onAdd(product, color, 1)}
+      onClick={() => color && (product.sizes && product.sizes.length > 0 ? navigate(`/product/${product.slug}`) : onAdd(product, color, 1))}
       aria-label={t('card.addToCartAria').replace('{name}', product.name)}
     >
       <Plus size={18} aria-hidden="true" />

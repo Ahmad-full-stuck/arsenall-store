@@ -69,13 +69,14 @@ export const getStoredCart = (products: Product[]): CartItem[] => {
         ? record.color
         : ''
     const color = findColor(product, colorId)
-    const signature = `${slug}:${color.id}`
+    const sizeValue = typeof record.size === 'string' && record.size ? record.size : undefined
+    const signature = `${slug}:${color.id}:${sizeValue || ''}`
     if (seen.has(signature)) continue
     const lengthValue = typeof record.length === 'number' ? record.length : typeof record.quantity === 'number' ? record.quantity : 0
     const length = normalizeHalfPieces(lengthValue)
     if (!length) continue
     seen.add(signature)
-    result = merge(result, { product, color, length, size: item.size })
+    result = merge(result, { product, color, length, size: sizeValue })
   }
   return result
 }
@@ -119,7 +120,7 @@ export const reconcileCart = (cart: CartItem[], products: Product[]): CartItem[]
     const length = Math.min(item.length, availablePieces(product, color))
     if (length <= 0) continue
     seen.add(signature)
-    result = merge(result, { product, color, length })
+    result = merge(result, { product, color, length, size: item.size })
   }
   return result
 }
@@ -143,7 +144,7 @@ export const setStoredWishlist = (slugs: string[]): void => {
 export const setStoredCart = (cart: CartItem[]): void => {
   if (typeof window === 'undefined') return
   try {
-    window.localStorage.setItem(CART_KEY, JSON.stringify(cart.map((item) => ({ productSlug: item.product.slug, colorId: item.color.id, length: item.length }))))
+    window.localStorage.setItem(CART_KEY, JSON.stringify(cart.map((item) => ({ productSlug: item.product.slug, colorId: item.color.id, length: item.length, size: item.size }))))
   } catch {
     return
   }

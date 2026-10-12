@@ -467,7 +467,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
 
   const submitLogin = async () => {
     if (pinLockUntil > Date.now()) {
-      setPinError('عدد كبير من المحاولات، حاولي بعد دقيقة')
+      setPinError('عدد كبير من المحاولات، حاول بعد دقيقة')
       return
     }
     const cleanUser = username.trim()
@@ -507,7 +507,7 @@ export function AdminSecret({ products, categories }: AdminSecretProps) {
       }
       setOnline(false)
       if (withUser) {
-        setPinError('تعذر الوصول إلى الخادم، حاولي لاحقاً')
+        setPinError('تعذر الوصول إلى الخادم، حاول لاحقاً')
         return
       }
     }
