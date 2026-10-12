@@ -15,7 +15,7 @@ interface ProductPageProps {
   products: Product[]
   wishlist: string[]
   onWish: (slug: string) => void
-  onAdd: (product: Product, color: ProductColor, length: number) => void
+  onAdd: (product: Product, color: ProductColor, length: number, size?: string) => void
 }
 
 export function ProductPage({ slug, products, wishlist, onWish, onAdd }: ProductPageProps) {
@@ -23,6 +23,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
   const product = products.find((item) => item.slug === slug)
   const [activeImage, setActiveImage] = useState(0)
   const [length, setLength] = useState(1)
+  const [size, setSize] = useState<string>('')
   const [zoomOpen, setZoomOpen] = useState(false)
   const [openSection, setOpenSection] = useState('specs')
   const [justAdded, setJustAdded] = useState(false)
@@ -36,6 +37,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
   useEffect(() => {
     setActiveImage(0)
     setLength(1)
+    setSize(product?.sizes?.[0] || '')
     setJustAdded(false)
     setZoomOpen(false)
     setVideoNeedsUnmute(false)
@@ -136,7 +138,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
   const increase = () => setLength((current) => Math.min(maxLength, current + 1))
   const decrease = () => setLength((current) => Math.max(1, current - 1))
   const add = () => {
-    onAdd(product, product.colors[0], length)
+    onAdd(product, product.colors[0], length, size)
     setJustAdded(true)
   }
   const scrollRelated = (direction: 'next' | 'prev') => {
@@ -197,6 +199,7 @@ export function ProductPage({ slug, products, wishlist, onWish, onAdd }: Product
         <div className="product-purchase-top"><div><span className="eyebrow">{lang === 'en' ? typeLabelsEn[product.type] || product.type : product.type}</span><h1>{product.name}</h1><p className="product-description">{product.description}</p></div><button type="button" className={`detail-wish ${wishlist.includes(product.slug) ? 'is-active' : ''}`} onClick={() => onWish(product.slug)} aria-label={wishlist.includes(product.slug) ? t('pd.wishRemove') : t('pd.wishAdd')} aria-pressed={wishlist.includes(product.slug)}><Heart size={20} fill={wishlist.includes(product.slug) ? 'currentColor' : 'none'} /></button></div>
         <div className="price-block"><span>{t('pd.pricePerPiece')}</span><strong>{formatPrice(product.price)}</strong>{product.compareAtPrice && <del>{formatPrice(product.compareAtPrice)}</del>}</div>
         <div className="detail-divider" />
+        {product.sizes && product.sizes.length > 0 && <div className="size-picker"><div className="size-picker-head"><strong>{t('pd.sizeHeading')}</strong><small>{t('pd.sizeHint')}</small></div><div className="size-chips">{product.sizes.map((option) => <button type="button" key={option} className={'size-chip' + (size === option ? ' is-active' : '')} onClick={() => setSize(option)} aria-pressed={size === option}>{option}</button>)}</div></div>}
         <div className="quantity-heading"><div><strong>{t('pd.qtyHeading')}</strong><small>{t('pd.qtyHint')}</small></div><span>{t('pd.availability')}</span></div>
         <div className="quantity-control"><button type="button" onClick={decrease} disabled={length <= 1} aria-label={t('pd.decreaseHalf')}><Minus size={17} /></button><output aria-live="polite">{piecesLabel(length)}</output><button type="button" onClick={increase} disabled={length >= maxLength} aria-label={t('pd.increaseHalf')}><Plus size={17} /></button></div>
         <label className="meters-input-row"><input className="meters-input" type="number" inputMode="decimal" min={1} max={Math.max(1, maxLength)} step={1} value={length} onChange={(event) => {

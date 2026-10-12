@@ -22,6 +22,7 @@ type CheckoutErrors = Partial<Record<keyof CheckoutForm, string>>
 
 
 interface StoredOrderItem {
+  size?: string
   productName: string
   colorName: string
   meters: number
@@ -270,7 +271,7 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
     address: form.address.trim(),
     landmark: form.landmark.trim(),
     notes: form.notes.trim() || undefined,
-    items: cart.map((item) => ({ productId: item.product.id, productSlug: item.product.slug, productName: item.product.name, colorId: item.color.id, color: item.color.hex, colorName: item.color.name, quantity: item.length, unitPrice: item.product.price, totalPrice: item.product.price * item.length })),
+    items: cart.map((item) => ({ productId: item.product.id, productSlug: item.product.slug, productName: item.product.name, colorId: item.color.id, color: item.color.hex, colorName: item.color.name, size: item.size || '', quantity: item.length, unitPrice: item.product.price, totalPrice: item.product.price * item.length })),
     subtotal: totals.subtotal,
     deliveryFee: totals.deliveryFee,
     total: totals.total,
@@ -304,7 +305,7 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
       const record: StoredOrder = {
         orderNumber,
         createdAt: new Date().toISOString(),
-        items: payload.items.map((item) => ({ productName: item.productName, colorName: item.colorName, meters: item.quantity, unitPrice: item.unitPrice, total: item.totalPrice })),
+        items: payload.items.map((item) => ({ productName: item.productName, colorName: item.colorName, size: item.size, meters: item.quantity, unitPrice: item.unitPrice, total: item.totalPrice })),
         subtotal: payload.subtotal,
         deliveryFee: payload.deliveryFee,
         total: payload.total,
@@ -339,6 +340,7 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
         items: payload.items.map((item) => ({
           productName: item.productName,
           colorName: item.colorName,
+          size: item.size,
           quantity: item.quantity,
           unitPrice: item.unitPrice,
           totalPrice: item.totalPrice,

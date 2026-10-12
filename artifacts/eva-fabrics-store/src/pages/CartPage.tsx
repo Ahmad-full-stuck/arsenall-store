@@ -164,6 +164,7 @@ export function CartPage({ cart, onUpdate, onRemove }: CartPageProps) {
                       <Link href={`/product/${item.product.slug}`} className="product-name">{item.product.name}</Link>
                       <div className="cart-item-chips">
                         <span className="chip glass-pill">{formatPrice(item.product.price)} / {t('cart.perPiece')}</span>
+                        {item.size && <span className="chip glass-pill">{t('cart.sizeChip').replace('{size}', item.size)}</span>}
                       </div>
                     </div>
                     <div className="cart-item-tools">

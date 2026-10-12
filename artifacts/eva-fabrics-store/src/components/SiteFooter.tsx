@@ -1,4 +1,4 @@
-import { Instagram, MapPin, MessageCircle, PackageSearch } from 'lucide-react'
+import { Instagram, Mail, MapPin, MessageCircle, PackageSearch, Phone } from 'lucide-react'
 import { Link } from 'wouter'
 import type { Category, SiteRoute } from '@/types'
 import { governorates } from '@/lib/fallback-data'
@@ -56,6 +56,9 @@ export function SiteFooter({ routes, categories }: SiteFooterProps) {
           <h2>{t('foot.colContact')}</h2>
           <Link href="/contact"><MessageCircle size={15} />{t('foot.contactForm')}</Link>
           <Link href="/order-tracking"><PackageSearch size={15} />{t('foot.trackStatus')}</Link>
+          <a href={'tel:' + siteConfig.phone} className="footer-contact-link"><Phone size={15} />{siteConfig.phone}</a>
+          <a href={'https://wa.me/' + (siteConfig.phone.startsWith('0') ? '964' + siteConfig.phone.slice(1) : siteConfig.phone)} className="footer-contact-link"><MessageCircle size={15} />{t('foot.whatsappLabel')}</a>
+          <a href={siteConfig.emailUrl()} className="footer-contact-link"><Mail size={15} />{t('foot.emailLabel')}</a>
         </div>
         <div className="footer-col">
           <h2>{t('foot.colServiceArea')}</h2>

@@ -20,7 +20,7 @@ interface HomePageProps {
   categories: Category[]
   wishlist: string[]
   onWish: (slug: string) => void
-  onAdd: (product: Product, color: ProductColor, length: number) => void
+  onAdd: (product: Product, color: ProductColor, length: number, size?: string) => void
 }
 
 const discoveryQuestions = [

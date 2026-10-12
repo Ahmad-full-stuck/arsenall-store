@@ -1759,3 +1759,12 @@ picture { display: contents; }
 .size-table th { background: var(--eva-rose-soft); color: var(--eva-rose-dark); font-weight: 700; }
 .size-table tr:nth-child(even) td { background: rgba(194, 24, 91, .04); }
 .muted-note { margin-top: 10px; font-size: 13px; color: var(--eva-muted); }
+
+/* Size picker */
+.size-picker { margin-top: 14px; }
+.size-picker-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.size-picker-head small { color: var(--eva-muted); font-size: 12px; }
+.size-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.size-chip { min-width: 46px; padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(194, 24, 91, .25); background: rgba(255, 255, 255, .7); color: var(--eva-text, #1f2430); font-weight: 700; font-size: 13.5px; cursor: pointer; transition: all .15s ease; }
+.size-chip.is-active { background: var(--eva-rose); border-color: var(--eva-rose); color: #fff; box-shadow: 0 6px 16px rgba(194, 24, 91, .25); }
+.footer-contact-link { display: inline-flex; align-items: center; gap: 7px; }

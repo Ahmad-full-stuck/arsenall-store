@@ -319,7 +319,7 @@ const buildAboutStats = (): AboutStat[] => {
     { label: 'about.stat1Label', value: counts.products, note: 'about.stat1Note' },
     { label: 'about.stat2Label', value: counts.categories, note: 'about.stat2Note' },
     { label: 'about.stat3Label', value: 18, note: 'about.stat3Note' },
-    { label: 'about.stat4Label', value: 201, note: 'about.stat4Note' },
+    { label: 'about.stat4Label', value: 7, note: 'about.stat4Note' },
   ]
 }
 

@@ -82,7 +82,7 @@ export const catalogStrings: Record<string, StringEntry> = {
   'fav.breadcrumbHome': { ar: 'الرئيسية', en: 'Home' },
   'fav.title': { ar: 'المفضلة', en: 'Favorites' },
   'fav.countOne': { ar: 'منتج واحدة بانتظارك', en: '1 product waiting for you' },
-  'fav.countTwo': { ar: 'خامتان بانتظارك', en: '2 products waiting for you' },
+  'fav.countTwo': { ar: 'قطعتان بانتظارك', en: '2 products waiting for you' },
   'fav.countFew': { ar: '{n} منتجات بانتظارك', en: '{n} products waiting for you' },
   'fav.countMany': { ar: '{n} منتج بانتظارك', en: '{n} products waiting for you' },
   'fav.emptyTitle': { ar: 'لم تحفظ منتجات بعد', en: 'You haven’t saved any products yet' },

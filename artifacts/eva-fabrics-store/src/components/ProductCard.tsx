@@ -10,7 +10,7 @@ interface ProductCardProps {
   product: Product
   wished: boolean
   onWish: (slug: string) => void
-  onAdd: (product: Product, color: ProductColor, length: number) => void
+  onAdd: (product: Product, color: ProductColor, length: number, size?: string) => void
   priority?: boolean
 }
 
@@ -207,7 +207,7 @@ export function ProductGridSkeleton() {
   )
 }
 
-export function InlineAddButton({ product, onAdd }: { product: Product; onAdd: (product: Product, color: ProductColor, length: number) => void }) {
+export function InlineAddButton({ product, onAdd }: { product: Product; onAdd: (product: Product, color: ProductColor, length: number, size?: string) => void }) {
   const { t } = useT()
   const color = product.colors.find((item) => item.available)
   return (

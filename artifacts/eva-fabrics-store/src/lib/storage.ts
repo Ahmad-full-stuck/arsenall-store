@@ -75,7 +75,7 @@ export const getStoredCart = (products: Product[]): CartItem[] => {
     const length = normalizeHalfPieces(lengthValue)
     if (!length) continue
     seen.add(signature)
-    result = merge(result, { product, color, length })
+    result = merge(result, { product, color, length, size: item.size })
   }
   return result
 }
@@ -85,14 +85,15 @@ export const addCartItem = (
   product: Product,
   color: ProductColor,
   requestedLength: number,
+  size?: string,
 ): { cart: CartItem[]; added: number; capped: boolean; available: boolean } => {
   const available = availablePieces(product, color)
   const length = normalizeHalfPieces(requestedLength)
   if (available <= 0 || length <= 0) return { cart, added: 0, capped: false, available: false }
-  const existing = cart.find((item) => orderKey(item) === orderKey({ product, color }))
+  const existing = cart.find((item) => orderKey(item) === orderKey({ product, color, size }))
   const current = existing?.length || 0
   const nextLength = Math.min(available, current + length)
-  return { cart: merge(cart, { product, color, length }), added: nextLength - current, capped: nextLength < current + length, available: true }
+  return { cart: merge(cart, { product, color, length, size }), added: nextLength - current, capped: nextLength < current + length, available: true }
 }
 
 export const updateCartItem = (cart: CartItem[], key: string, requestedLength: number): CartItem[] => {
@@ -113,7 +114,7 @@ export const reconcileCart = (cart: CartItem[], products: Product[]): CartItem[]
     const product = findProduct(products, item.product.slug)
     if (!product) continue
     const color = findColor(product, item.color.id)
-    const signature = `${product.slug}:${color.id}`
+    const signature = `${product.slug}:${color.id}:${item.size || ''}`
     if (seen.has(signature)) continue
     const length = Math.min(item.length, availablePieces(product, color))
     if (length <= 0) continue

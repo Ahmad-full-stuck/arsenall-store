@@ -11,6 +11,7 @@ export interface OrderEmailData {
   items: Array<{
     productName: string
     colorName: string
+  size?: string
     quantity: number
     unitPrice: number
     totalPrice: number
@@ -42,7 +43,7 @@ const defaultSubject = (data: OrderEmailData): string => `طلب جديد #${dat
 
 export const renderOrderTemplate = (template: string, data: OrderEmailData, config: OrderEmailConfig): string => {
   const items = data.items
-    .map((item) => `- ${item.productName} (${item.colorName}) × ${formatPieces(item.quantity)} × ${formatPrice(item.unitPrice)} = ${formatPrice(item.totalPrice)}`)
+    .map((item) => `- ${item.productName} (${item.colorName}${item.size ? ` · ${item.size}` : ''}) × ${formatPieces(item.quantity)} × ${formatPrice(item.unitPrice)} = ${formatPrice(item.totalPrice)}`)
     .join('\n')
   const vars: Record<string, string> = {
     orderNumber: data.orderNumber,
@@ -83,7 +84,7 @@ const defaultTemplate = (data: OrderEmailData): string => {
   lines.push('')
   lines.push('تفاصيل الطلب:')
   for (const item of data.items) {
-    lines.push(`- ${item.productName} (${item.colorName}) × ${formatPieces(item.quantity)} × ${formatPrice(item.unitPrice)} = ${formatPrice(item.totalPrice)}`)
+    lines.push(`- ${item.productName} (${item.colorName}${item.size ? ` · ${item.size}` : ''}) × ${formatPieces(item.quantity)} × ${formatPrice(item.unitPrice)} = ${formatPrice(item.totalPrice)}`)
   }
   lines.push('')
   lines.push(`المجموع الفرعي: ${formatPrice(data.subtotal)}`)

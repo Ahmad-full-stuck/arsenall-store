@@ -11,7 +11,7 @@ interface FavoritesPageProps {
   categories: Category[]
   wishlist: string[]
   onWish: (slug: string) => void
-  onAdd: (product: Product, color: ProductColor, length: number) => void
+  onAdd: (product: Product, color: ProductColor, length: number, size?: string) => void
 }
 
 const favoriteCountLabel = (count: number, t: (key: string) => string): string => {

@@ -138,8 +138,8 @@ function AppShell() {
     window.scrollTo(0, 0)
   }, [pathname])
 
-  const addToCart = (product: Product, color: ProductColor, length: number) => {
-    const result = addCartItem(cart, product, color, length)
+  const addToCart = (product: Product, color: ProductColor, length: number, size?: string) => {
+    const result = addCartItem(cart, product, color, length, size)
     if (!result.available) {
       setNotice(t('core.noticeUnavailable'))
       return

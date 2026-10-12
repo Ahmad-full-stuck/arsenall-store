@@ -16,11 +16,11 @@
     "colors": [],
     "colorsEnabled": false,
     "specs": {
-      "composition": "قطن وبوليستر",
-      "width": "مقاس معتاد",
+      "composition": "بوليستر متعدد",
+      "width": "S – XL",
       "weight": "متوسط",
       "stretch": "مرن قليلاً",
-      "opacity": "ممتاز",
+      "opacity": "ممتازة",
       "finish": "ناعم",
       "use": "رياضة يومية",
       "care": "غسيل بارد"
@@ -30,7 +30,13 @@
     "isFeatured": true,
     "stockPieces": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
-    "sourceUrl": "https://www.instagram.com/a.arsenall/"
+    "sourceUrl": "https://www.instagram.com/a.arsenall/",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
   },
   {
     "id": "arsenall-02",
@@ -50,10 +56,10 @@
     "colorsEnabled": false,
     "specs": {
       "composition": "قطن وبوليستر",
-      "width": "مقاس معتاد",
+      "width": "S – XL",
       "weight": "متوسط",
       "stretch": "مرن قليلاً",
-      "opacity": "ممتاز",
+      "opacity": "ممتازة",
       "finish": "ناعم",
       "use": "رياضة يومية",
       "care": "غسيل بارد"
@@ -63,7 +69,13 @@
     "isFeatured": true,
     "stockPieces": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
-    "sourceUrl": "https://www.instagram.com/a.arsenall/"
+    "sourceUrl": "https://www.instagram.com/a.arsenall/",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
   },
   {
     "id": "arsenall-03",
@@ -83,11 +95,11 @@
     "colors": [],
     "colorsEnabled": false,
     "specs": {
-      "composition": "قطن وبوليستر",
-      "width": "مقاس معتاد",
+      "composition": "بوليستر متعدد",
+      "width": "S – XL",
       "weight": "متوسط",
       "stretch": "مرن قليلاً",
-      "opacity": "ممتاز",
+      "opacity": "ممتازة",
       "finish": "ناعم",
       "use": "رياضة يومية",
       "care": "غسيل بارد"
@@ -97,6 +109,12 @@
     "isFeatured": false,
     "stockPieces": 50,
     "createdAt": "2026-10-10T00:00:00.000Z",
-    "sourceUrl": "https://www.instagram.com/a.arsenall/"
+    "sourceUrl": "https://www.instagram.com/a.arsenall/",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
   }
 ]

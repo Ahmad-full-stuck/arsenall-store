@@ -38,6 +38,7 @@ export interface Product {
   video?: string
   colors: ProductColor[]
   colorsEnabled?: boolean
+  sizes?: string[]
   specs: ProductSpecs
   faqs: ProductFaq[]
   isNew: boolean
@@ -76,6 +77,7 @@ export interface CartItem {
   product: Product
   color: ProductColor
   length: number
+  size?: string
 }
 
 export interface CheckoutForm {
@@ -90,6 +92,7 @@ export interface CheckoutForm {
 }
 
 export interface OrderItemPayload {
+  size?: string
   productId: string
   productSlug: string
   productName: string

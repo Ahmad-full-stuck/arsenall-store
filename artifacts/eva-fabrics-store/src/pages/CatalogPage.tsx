@@ -14,7 +14,7 @@ interface CatalogPageProps {
   status: 'loading' | 'ready' | 'fallback'
   wishlist: string[]
   onWish: (slug: string) => void
-  onAdd: (product: Product, color: ProductColor, length: number) => void
+  onAdd: (product: Product, color: ProductColor, length: number, size?: string) => void
 }
 
 type SortKey = 'featured' | 'price-asc' | 'price-desc'

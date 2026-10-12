@@ -1,4 +1,4 @@
-﻿import type { StringEntry } from '@/lib/i18n'
+import type { StringEntry } from '@/lib/i18n'
 
 /** UI strings for this area — every entry needs both \r\ and \en\. */
 export const headerStrings: Record<string, StringEntry> = {
@@ -44,6 +44,8 @@ export const headerStrings: Record<string, StringEntry> = {
   'foot.colContact': { ar: 'تواصل معنا', en: 'Contact us' },
   'foot.contactForm': { ar: 'نموذج التواصل في الموقع', en: 'Contact form on the site' },
   'foot.trackStatus': { ar: 'تتبّع حالة الطلب', en: 'Track your order status' },
+  'foot.whatsappLabel': { ar: 'واتساب', en: 'WhatsApp' },
+  'foot.emailLabel': { ar: 'البريد الإلكتروني', en: 'Email' },
   'foot.colServiceArea': { ar: 'نطاق الخدمة', en: 'Service area' },
   'foot.deliveryRange': { ar: 'نوصل إلى {list} وجميع محافظات العراق.', en: 'We deliver to {list} and every governorate in Iraq.' },
   'foot.listSeparator': { ar: '،', en: ',' },
@@ -58,7 +60,7 @@ export const headerStrings: Record<string, StringEntry> = {
   'home.storyEyebrow': { ar: 'قصة العلامة', en: 'Our story' },
   'home.storyImageAlt': { ar: 'منتج رياضي', en: 'Sport product' },
   'home.storyText2': { ar: 'نصمم تجربتنا لتكون قريبة منك: صور واضحة، مواصفات مفهومة، وخدمة تساعدك قبل الطلب وبعده.', en: 'We design our experience to stay close to you: clear photos, understandable specs, and support before and after you order.' },
-  'home.storyCta': { ar: 'اعرفي أكثر عن Arsenall', en: 'Learn more about Arsenall' },
+  'home.storyCta': { ar: 'اعرف أكثر عن Arsenall', en: 'Learn more about Arsenall' },
   'home.trustAria': { ar: 'ضمانات المتجر', en: 'Store guarantees' },
   'home.faq.questionNumber': { ar: 'سؤال {n}', en: 'Question {n}' },
 
@@ -69,19 +71,19 @@ export const headerStrings: Record<string, StringEntry> = {
   'home.discovery.progress': { ar: 'الخطوة {step} من ٣', en: 'Step {step} of 3' },
   'home.discovery.restart': { ar: 'ابدأ من جديد', en: 'Start over' },
   'home.discovery.resultsTitle': { ar: 'اقتراحاتنا لك', en: 'Our suggestions for you' },
-  'home.discovery.matchFallback': { ar: 'منتج مطابقة لاختياراتك', en: 'A product that matches your choices' },
+  'home.discovery.matchFallback': { ar: 'منتج مطابق لاختياراتك', en: 'A product that matches your choices' },
   'home.discovery.viewProduct': { ar: 'عرض {name}', en: 'View {name}' },
   'home.discovery.view': { ar: 'شاهد', en: 'View' },
   'home.discovery.showAllMatches': { ar: 'عرض كل المنتجات المطابقة', en: 'Show all matching products' },
   'home.discovery.viewSuggestions': { ar: 'شاهد اقتراحاتي', en: 'View my suggestions' },
-  'home.discovery.q1': { ar: 'ماذا ستصنعين؟', en: 'What will you make?' },
-  'home.discovery.q1.dress': { ar: 'ملابس يومي', en: 'Everyday dress' },
-  'home.discovery.q1.evening': { ar: 'ملابس سهرة', en: 'Evening dress' },
+  'home.discovery.q1': { ar: 'ما الذي تبحث عنه؟', en: 'What are you looking for?' },
+  'home.discovery.q1.dress': { ar: 'ملابس يومية', en: 'Everyday wear' },
+  'home.discovery.q1.evening': { ar: 'قطع رسمية', en: 'Formal pieces' },
   'home.discovery.q1.abaya': { ar: 'طقم تدريب', en: 'Training set' },
-  'home.discovery.q1.practical': { ar: 'قطعة عملية', en: 'A practical piece' },
-  'home.discovery.q2': { ar: 'هل تحتاجين مرونة؟', en: 'Do you need stretch?' },
-  'home.discovery.q2.yes': { ar: 'نعم، رياضي', en: 'Yes, stretchy' },
-  'home.discovery.q2.no': { ar: 'لا، غير رياضي', en: 'No, not stretchy' },
+  'home.discovery.q1.practical': { ar: 'قطع عملية', en: 'Practical pieces' },
+  'home.discovery.q2': { ar: 'هل تهمك مرونة الحركة؟', en: 'Is freedom of movement important?' },
+  'home.discovery.q2.yes': { ar: 'نعم، رياضي', en: 'Yes, sporty' },
+  'home.discovery.q2.no': { ar: 'لا، غير رياضي', en: 'No, casual fit' },
   'home.discovery.q2.either': { ar: 'لا يهمني', en: 'It does not matter' },
   'home.discovery.q3': { ar: 'ما اللون الأقرب لك؟', en: 'Which colour feels closest to you?' },
   'home.discovery.q3.dark': { ar: 'داكن', en: 'Dark' },
@@ -96,11 +98,11 @@ export const headerStrings: Record<string, StringEntry> = {
   'home.steps.browseAll': { ar: 'تصفح كل المنتجات', en: 'Browse all products' },
   'home.steps.s1.index': { ar: '٠١', en: '01' },
   'home.steps.s1.title': { ar: 'اختر المنتج', en: 'Pick your product' },
-  'home.steps.s1.text': { ar: 'تصفح الأقسام وقارن الصور والمواصفات: المنتج والراحة والجودة قبل أن تقرر.', en: 'Browse the sections and compare images and specs: product, comfort and quality before you decide.' },
+  'home.steps.s1.text': { ar: 'تصفح الأقسام وقارن الصور والمواصفات: المقاس والراحة والجودة قبل أن تقرر.', en: 'Browse the sections and compare images and specs: size, comfort and quality before you decide.' },
   'home.steps.s1.hint': { ar: 'بدون تسجيل', en: 'No sign-up needed' },
   'home.steps.s2.index': { ar: '٠٢', en: '02' },
   'home.steps.s2.title': { ar: 'حدد الكمية', en: 'Choose your quantity' },
-  'home.steps.s2.text': { ar: 'أضف قطعة واحدة فأكثر إلى السلة، واختر اللون المناسب، ونؤكد التوافر معك عبر الهاتف عند تأكيد الطلب.', en: 'Add one piece or more to the cart, pick your color, and we confirm availability by phone when you confirm.' },
+  'home.steps.s2.text': { ar: 'أضف قطعة واحدة فأكثر إلى السلة، ثم أكمل طلبك، ونؤكد التوافر معك عبر الهاتف عند التأكيد.', en: 'Add one piece or more to the cart, complete your order, and we confirm availability by phone.' },
   'home.steps.s2.hint': { ar: 'من قطعة واحدة', en: 'From one piece' },
   'home.steps.s3.index': { ar: '٠٣', en: '03' },
   'home.steps.s3.title': { ar: 'أرسل الطلب وادفع', en: 'Send your order and pay' },
@@ -136,9 +138,9 @@ export const headerStrings: Record<string, StringEntry> = {
   'home.stats.cashTrend': { ar: 'مريح وآمن', en: 'Easy and secure' },
   'home.stats.percent': { ar: '٪', en: '%' },
   'home.slide.colorful': { ar: 'تصاميم متنوعة', en: 'Modern sporty designs' },
-  'home.slide.sequin': { ar: 'جودة عالية', en: 'Durable stitched quality' },
+  'home.slide.sequin': { ar: 'جودة عالية', en: 'Built to last' },
   'home.slide.pearl': { ar: 'ألوان متعددة تناسب ذوقك', en: 'Colors that suit your taste' },
-  'home.slide.stripe': { ar: 'تصميم عصري', en: 'Navy & burgundy stripes' },
+  'home.slide.stripe': { ar: 'تصميم عصري', en: 'A look that stands out' },
 }
 
 export const routeLabelsEn: Record<string, string> = {
@@ -176,7 +178,7 @@ export const trustItemsEn: { title: string; description: string; icon: string }[
 
 export const homeStoryEn = {
   title: 'Products worth choosing with confidence',
-  text: 'Arsenall is an Iraqi sports store that brings together products from the best brands — clothing, shoes and accessories with original quality and delivery to all Iraqi governorates.',
+  text: 'Arsenall is an Iraqi football store — jerseys, t-shirts and shorts for the pitch and the stands, delivered to every Iraqi governorate.',
 }
 
 export const guideQuestionsEn: { question: string; answer: string }[] = [

@@ -79,7 +79,7 @@ export const availablePieces = (product: Product, color?: ProductColor): number 
 export const isSoldOut = (product: Product): boolean =>
   product.colorsEnabled !== false && product.colors.length > 0 && !product.colors.some((color) => color.available)
 
-export const orderKey = (item: Pick<CartItem, 'product' | 'color'>): string => `${item.product.slug}:${item.color.id}`
+export const orderKey = (item: Pick<CartItem, 'product' | 'color' | 'size'>): string => `${item.product.slug}:${item.color.id}${item.size ? `:${item.size}` : ''}`
 
 export const getOrderNumber = (payload: unknown): string | null => {
   if (!payload || typeof payload !== 'object') return null
