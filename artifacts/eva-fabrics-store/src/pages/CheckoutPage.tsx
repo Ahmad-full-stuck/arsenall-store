@@ -9,6 +9,7 @@ import { governorates } from '@/lib/fallback-data'
 import { useSiteContent } from '@/lib/site-content'
 import { sendOrderEmail } from '@/lib/email'
 import { queuePendingOrder } from '@/lib/api'
+import { sendOrderToCloud, type CloudOrder } from '@/lib/orders-cloud'
 import { SmartImage } from '@/components/ui/SmartImage'
 
 interface CheckoutPageProps {
@@ -363,10 +364,35 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
   }
 
   // احتياط: إن تعذّر حفظ الطلب في الخادم يُسجَّل محلياً ويُرسل تلقائياً عند عودة الاتصال.
+  const buildCloudOrder = (orderNumber: string, payload: OrderPayload): CloudOrder => ({
+    orderNumber,
+    createdAt: new Date().toISOString(),
+    customerName: payload.customerName,
+    phone: payload.phone,
+    email: payload.email,
+    governorate: payload.governorate,
+    district: payload.district,
+    address: payload.address,
+    landmark: payload.landmark,
+    notes: payload.notes,
+    items: payload.items.map((item) => ({
+      productName: item.productName,
+      colorName: item.colorName,
+      size: item.size || undefined,
+      quantity: item.quantity,
+      unitPrice: item.unitPrice,
+      totalPrice: item.totalPrice,
+    })),
+    subtotal: payload.subtotal,
+    deliveryFee: payload.deliveryFee,
+    total: payload.total,
+  })
+
   const completeStaticOrder = (payload: OrderPayload): void => {
     const orderNumber = createLocalOrderNumber()
     saveLocalOrder(orderNumber, 'received', payload)
     notifyByEmail(payload, orderNumber)
+    void sendOrderToCloud(buildCloudOrder(orderNumber, payload))
     setSubmitState('idle')
     setLiveMessage(t('co.orderSuccess').replace('{number}', orderNumber))
     onComplete(orderNumber)
@@ -438,6 +464,7 @@ export function CheckoutPage({ cart, onComplete }: CheckoutPageProps) {
         }
         const serverNumber = getOrderNumber(body) || orderNumber
         saveLocalOrder(serverNumber, 'received', payload)
+        void sendOrderToCloud(buildCloudOrder(serverNumber, payload))
         setPendingOrderNumber('')
         setSubmitState('idle')
         setLiveMessage(t('co.orderSuccess').replace('{number}', serverNumber))

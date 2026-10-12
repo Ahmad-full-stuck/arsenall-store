@@ -16,6 +16,7 @@ import { CartPage } from '@/pages/CartPage'
 import { CheckoutPage } from '@/pages/CheckoutPage'
 import { FavoritesPage } from '@/pages/FavoritesPage'
 import { AboutPage, ContactPage, SizeGuidePage, OrderConfirmationPage, OrderTrackingPage, PoliciesPage } from '@/pages/InfoPages'
+import { AdminConsolePage } from '@/pages/AdminConsolePage'
 import NotFound from '@/pages/not-found'
 
 const shellStyles = `
@@ -193,6 +194,7 @@ function AppShell() {
           <Route path="/order-tracking" component={OrderTrackingPage} />
           <Route path="/order-confirmation/:orderNumber">{(params) => <OrderConfirmationPage orderNumber={safeDecode(params.orderNumber)} />}</Route>
           <Route path="/admin" component={() => null} />
+          <Route path="/admin-console" component={AdminConsolePage} />
           <Route component={NotFound} />
         </Switch>
       </div>
