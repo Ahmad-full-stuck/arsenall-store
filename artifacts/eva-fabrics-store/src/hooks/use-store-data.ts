@@ -168,7 +168,8 @@ const applyGlobalColors = (products: Product[]): Product[] => {
 
 export const useStoreData = (): StorefrontData & { status: ApiStatus } => {
   const [data, setData] = useState<StorefrontData>(() => ({ products: applyGlobalColors(mergeAdminProducts(fallbackProducts)), categories: mergeAdminCategories(fallbackCategories), routes: fallbackRoutes, source: 'fallback' }))
-  const [status, setStatus] = useState<ApiStatus>('loading')
+  const apiEnabled = Boolean((import.meta.env.VITE_API_URL || '').replace(/\/+$/, ''))
+  const [status, setStatus] = useState<ApiStatus>(apiEnabled ? 'loading' : 'ready')
 
   useEffect(() => {
     const controller = new AbortController()
@@ -192,6 +193,7 @@ export const useStoreData = (): StorefrontData & { status: ApiStatus } => {
       })
       setStatus(successful === 0 ? 'fallback' : 'ready')
     }
+    if (!apiEnabled) return
     void load()
     const syncAdmin = () => {
       setData((current) => ({ ...current, products: applyGlobalColors(mergeAdminProducts(current.products)), categories: mergeAdminCategories(current.categories) }))
@@ -202,7 +204,7 @@ export const useStoreData = (): StorefrontData & { status: ApiStatus } => {
       controller.abort()
       window.removeEventListener('eva-admin-changed', syncAdmin)
     }
-  }, [])
+  }, [apiEnabled])
 
   return { ...data, status }
 }

@@ -313,7 +313,8 @@ export function CatalogPage({ products, categories, status, wishlist, onWish, on
       : priceRange.max !== null
         ? t('cat.priceUntilLabel').replace('{price}', formatPrice(priceRange.max))
         : ''
-  const statusLabel = status === 'loading' ? t('cat.statusLoading') : status === 'fallback' ? t('cat.statusFallback') : t('cat.statusLive')
+  const apiEnabled = Boolean((import.meta.env.VITE_API_URL || '').replace(/\/+$/, ''))
+  const statusLabel = !apiEnabled ? '' : status === 'loading' ? t('cat.statusLoading') : status === 'fallback' ? t('cat.statusFallback') : t('cat.statusLive')
 
   const chips = useMemo(() => [
     { id: '', label: t('cat.chipAll'), count: products.length },
@@ -392,7 +393,7 @@ export function CatalogPage({ products, categories, status, wishlist, onWish, on
         <div>
           <span className="eyebrow">{t('cat.eyebrow')}</span>
           <h1>{activeCategory ? activeCategory.name : t('cat.allProductsTitle')}</h1>
-          <p>{t('cat.countProducts').replace('{n}', String(products.length))} · {statusLabel}</p>
+          <p>{t('cat.countProducts').replace('{n}', String(products.length))}{statusLabel ? ` · ${statusLabel}` : ''}</p>
         </div>
         <div className="catalog-sort">
           <label htmlFor="catalog-sort">{t('cat.sortBy')}</label>

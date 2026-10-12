@@ -17,8 +17,8 @@ interface SearchDialogProps {
 const suggestions: { query: string; labelKey: string }[] = [
   { query: 'منتج رياضي', labelKey: 'search.sugStretch' },
   { query: 'منتج أسود', labelKey: 'search.sugBlack' },
-  { query: 'مميز', labelKey: 'search.sugEmbroidered' },
-  { query: 'لامع', labelKey: 'search.sugSequined' },
+  { query: 'مميز', labelKey: 'search.sugT-shirt' },
+  { query: 'هودي', labelKey: 'search.sugHoodie' },
   { query: 'ملابس رياضية', labelKey: 'search.sugEvening' },
   { query: 'غير رياضي', labelKey: 'search.sugNonStretch' },
 ]

@@ -56,8 +56,8 @@ const shellStyles = `
 `
 
 const PAGE_SEO: Record<string, { title: string; desc: string }> = {
-  '/': { title: 'Arsenall | Streetwear', desc: 'متجر Arsenall: تعرّف على المنتج والمرونة والشفافية واللون، اختر ما يناسب قطعك، واطلب بقطعة واحدة مع توصيل إلى جميع محافظات العراق.' },
-  '/catalog': { title: 'كل المنتجات | Arsenall', desc: 'تصفح منتجات Arsenall: قطن، كريب، ساتان وأكثر — مع المرونة واللون وسعر القطعة.' },
+  '/': { title: 'Arsenall | Streetwear', desc: 'متجر Arsenall: تعرّف على المقاسات والخامة واللون، اختر ما يناسبك، واطلب بقطعة واحدة مع توصيل إلى جميع محافظات العراق.' },
+  '/catalog': { title: 'كل المنتجات | Arsenall', desc: 'تصفح منتجات Arsenall: تيشيرتات، هوديات وأطقم — مع مقاسات متنوعة وألوان وأسعار واضحة.' },
   '/cart': { title: 'سلة المشتريات | Arsenall', desc: 'راجع منتجك المختار والكمية قبل إتمام الطلب.' },
   '/checkout': { title: 'إتمام الطلب | Arsenall', desc: 'أدخل بياناتك والكمية لتأكيد طلب المنتجات مع التوصيل إلى جميع محافظات العراق.' },
   '/favorites': { title: 'المفضلة | Arsenall', desc: 'المنتجات التي حفظتها للرجوع إليها لاحقاً.' },
@@ -70,8 +70,8 @@ const PAGE_SEO: Record<string, { title: string; desc: string }> = {
 }
 
 const PAGE_SEO_EN: Record<string, { title: string; desc: string }> = {
-  '/': { title: 'Arsenall | Streetwear & Sport', desc: 'Arsenall products: learn about texture, stretch, opacity and color, choose what fits your piece, and order by the per piece with delivery across Iraq.' },
-  '/catalog': { title: 'All products | Arsenall', desc: 'Browse Arsenall products: cotton, crepe, satin and more — with stretch, color and price per piece.' },
+  '/': { title: 'Arsenall | Streetwear & Sport', desc: 'Arsenall products: learn about sizes, materials and color, choose what fits you, and order easily with delivery across Iraq.' },
+  '/catalog': { title: 'All products | Arsenall', desc: 'Browse Arsenall products: tees, hoodies and sets — with sizes, colors and clear prices.' },
   '/cart': { title: 'Shopping cart | Arsenall', desc: 'Review your chosen product and pieces before placing your order.' },
   '/checkout': { title: 'Checkout | Arsenall', desc: 'Enter your details and pieces to confirm your product order with delivery across Iraq.' },
   '/favorites': { title: 'Favorites | Arsenall', desc: 'The products you saved to come back to later.' },

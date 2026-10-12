@@ -1,4 +1,4 @@
-import { MapPin, MessageCircle, PackageSearch } from 'lucide-react'
+import { Instagram, MapPin, MessageCircle, PackageSearch } from 'lucide-react'
 import { Link } from 'wouter'
 import type { Category, SiteRoute } from '@/types'
 import { governorates } from '@/lib/fallback-data'
@@ -36,6 +36,7 @@ export function SiteFooter({ routes, categories }: SiteFooterProps) {
         <p>{t('foot.tagline')}</p>
         <div className="social-links">
           <Link href="/contact" aria-label={t('foot.contactViaSite')}><MessageCircle size={17} /></Link>
+          {siteConfig.instagramUrl && <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer" aria-label={siteConfig.instagramText}><Instagram size={17} /></a>}
         </div>
       </div>
       <div className="container-eva footer-grid">

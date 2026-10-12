@@ -70,7 +70,7 @@ export const defaultSiteContent: SiteContent = {
   newDesc: 'آخر ما أضفناه من منتجات رياضية',
   guideEyebrow: 'قبل الشراء',
   guideTitle: 'اختر المقاس|المناسب لفريقك',
-  guideText: 'راجع جدول المقاسات في صفحة المنتج. إذا كنت بين مقاسين، اختر الأكبر لمزيد من الراحة.',
+  guideText: 'راجع جدول المقاسات في دليل المقاسات. إذا كنت بين مقاسين، اختر الأكبر لمزيد من الراحة.',
   guideCta: 'تصفح المنتجات',
   newsletterEyebrow: 'ابقَ على تواصل',
   newsletterTitle: 'اشتراك بالبريد',

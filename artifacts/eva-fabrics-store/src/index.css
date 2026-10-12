@@ -1749,3 +1749,13 @@ picture { display: contents; }
 }
 
 .footer-grid span.footer-delivery-note { display: inline-flex; align-items: center; gap: 6px; min-height: 30px; margin-top: 4px; color: #a89a96; font-size: 11.5px; }
+
+
+/* Size chart table */
+.size-chart { margin: 28px 0; }
+.table-scroll { overflow-x: auto; }
+.size-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.size-table th, .size-table td { border: 1px solid var(--eva-line); padding: 10px 12px; text-align: center; font-size: 14px; }
+.size-table th { background: var(--eva-rose-soft); color: var(--eva-rose-dark); font-weight: 700; }
+.size-table tr:nth-child(even) td { background: rgba(194, 24, 91, .04); }
+.muted-note { margin-top: 10px; font-size: 13px; color: var(--eva-muted); }

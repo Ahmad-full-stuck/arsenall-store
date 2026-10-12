@@ -1,4 +1,4 @@
-﻿import type { StringEntry } from '@/lib/i18n'
+import type { StringEntry } from '@/lib/i18n'
 
 /** UI strings for this area — every entry needs both \r\ and \en\. */
 export const catalogStrings: Record<string, StringEntry> = {
@@ -45,10 +45,10 @@ export const catalogStrings: Record<string, StringEntry> = {
   'cat.filterPanelTitle': { ar: 'التصفية', en: 'Filters' },
   'cat.productType': { ar: 'نوع المنتج', en: 'Product type' },
   'cat.allCategories': { ar: 'كل الأقسام', en: 'All categories' },
-  'cat.stretchLegend': { ar: 'الراحة', en: 'Stretch' },
+  'cat.stretchLegend': { ar: 'الحركة', en: 'Activity' },
   'cat.stretchAll': { ar: 'الكل', en: 'All' },
-  'cat.stretchYes': { ar: 'رياضي', en: 'Stretchy' },
-  'cat.stretchNon': { ar: 'غير رياضي', en: 'Non-stretch' },
+  'cat.stretchYes': { ar: 'رياضي', en: 'Sporty' },
+  'cat.stretchNon': { ar: 'يومي', en: 'Everyday' },
   'cat.priceRange': { ar: 'نطاق السعر', en: 'Price range' },
   'cat.priceFrom': { ar: 'من', en: 'From' },
   'cat.priceTo': { ar: 'إلى', en: 'To' },
@@ -67,15 +67,15 @@ export const catalogStrings: Record<string, StringEntry> = {
 
   'card.wishRemove': { ar: 'إزالة {name} من المفضلة', en: 'Remove {name} from favorites' },
   'card.wishAdd': { ar: 'إضافة {name} إلى المفضلة', en: 'Add {name} to favorites' },
-  'card.addHalfAria': { ar: 'أضف قطعة واحدة من {name} إلى السلة', en: 'Add half a piece of {name} to the cart' },
+  'card.addHalfAria': { ar: 'أضف قطعة واحدة من {name} إلى السلة', en: 'Add one piece or more of {name} to the cart' },
   'card.detailsAria': { ar: 'عرض تفاصيل {name}', en: 'View details for {name}' },
   'card.badgeStyle': { ar: 'ستايل', en: 'Style' },
   'card.badgeNew': { ar: 'جديد', en: 'New' },
   'card.badgeLow': { ar: 'كمية محدودة', en: 'Low stock' },
   'card.badgeSold': { ar: 'غير متوفر', en: 'Out of stock' },
-  'card.perPiece': { ar: 'قطعة', en: '/m' },
+  'card.perPiece': { ar: 'قطعة', en: 'each' },
   'card.soldOut': { ar: 'نفد المخزون', en: 'Sold out' },
-  'card.addHalf': { ar: 'أضف قطعة واحدة', en: 'Add half piece' },
+  'card.addHalf': { ar: 'أضف', en: 'Add' },
   'card.loadingAria': { ar: 'جارٍ تحميل المنتجات', en: 'Loading products' },
   'card.addToCartAria': { ar: 'إضافة {name} إلى السلة', en: 'Add {name} to the cart' },
 
@@ -85,9 +85,9 @@ export const catalogStrings: Record<string, StringEntry> = {
   'fav.countTwo': { ar: 'خامتان بانتظارك', en: '2 products waiting for you' },
   'fav.countFew': { ar: '{n} منتجات بانتظارك', en: '{n} products waiting for you' },
   'fav.countMany': { ar: '{n} منتج بانتظارك', en: '{n} products waiting for you' },
-  'fav.emptyTitle': { ar: 'لم تحفظي منتجات بعد', en: 'You haven’t saved any products yet' },
-  'fav.emptyHint': { ar: 'اضغط على القلب في أي منتج لتظهر هنا، ثم انقلها إلى السلة بقطعة واحدة أو أكثر بضغطة واحدة.', en: 'Tap the heart on any product to keep it here, then move it to your cart with half a piece or more in one tap.' },
-  'fav.browse': { ar: 'اكتشفي المنتجات', en: 'Browse products' },
+  'fav.emptyTitle': { ar: 'لم تحفظ منتجات بعد', en: 'You haven’t saved any products yet' },
+  'fav.emptyHint': { ar: 'اضغط على القلب في أي منتج لتظهر هنا، ثم انقلها إلى السلة بقطعة واحدة أو أكثر بضغطة واحدة.', en: 'Tap the heart on any product to keep it here, then move it to your cart with one piece or more in one tap.' },
+  'fav.browse': { ar: 'اكتشف المنتجات', en: 'Browse products' },
   'fav.guide': { ar: 'دليل اختيار المنتج', en: 'Product selection guide' },
   'fav.suggested': { ar: 'أقسام مقترحة:', en: 'Suggested categories:' },
   'fav.eyebrow': { ar: 'اختياراتك المحفوظة', en: 'Your saved picks' },
@@ -95,7 +95,7 @@ export const catalogStrings: Record<string, StringEntry> = {
   'fav.removeAria': { ar: 'إزالة {name} من المفضلة', en: 'Remove {name} from favorites' },
   'fav.removeBtn': { ar: 'إزالة', en: 'Remove' },
   'fav.details': { ar: 'تفاصيل المنتج', en: 'Product details' },
-  'fav.note': { ar: 'اضغط «أضف ٠٫٥ م» على أي بطاقة لنقلها إلى السلة مباشرة، أو القلب لإزالتها من هنا.', en: 'Tap “Add 0.5 m” on any card to send it straight to your cart, or the heart to remove it from here.' },
+  'fav.note': { ar: 'اضغط «أضف» على أي بطاقة لنقلها إلى السلة مباشرة، أو القلب لإزالتها من هنا.', en: 'Tap “Add” on any card to move it to the cart, or the heart to remove it.' },
 
   'search.title': { ar: 'البحث في المنتجات', en: 'Search products' },
   'search.close': { ar: 'إغلاق البحث', en: 'Close search' },
@@ -106,15 +106,21 @@ export const catalogStrings: Record<string, StringEntry> = {
   'search.popular': { ar: 'بحث شائع', en: 'Popular searches' },
   'search.resultsCount': { ar: '{n} نتائج مناسبة', en: '{n} matching results' },
   'search.noResults': { ar: 'لا توجد نتائج مطابقة', en: 'No matching results' },
-  'search.sugStretch': { ar: 'منتج رياضي', en: 'Stretchy product' },
+  'search.sugStretch': { ar: 'منتج رياضي', en: 'Sport product' },
   'search.sugBlack': { ar: 'منتج أسود', en: 'Black product' },
-  'search.sugEmbroidered': { ar: 'مميز', en: 'Embroidered' },
-  'search.sugSequined': { ar: 'لامع', en: 'Sequined' },
-  'search.sugEvening': { ar: 'ملابس سهرة', en: 'Evening dresses' },
-  'search.sugNonStretch': { ar: 'غير رياضي', en: 'Non-stretch' },
+  'search.sugEmbroidered': { ar: 'تيشيرت', en: 'T-shirt' },
+  'search.sugSequined': { ar: 'هودي', en: 'Hoodie' },
+  'search.sugEvening': { ar: 'ملابس رياضية', en: 'Sportswear' },
+  'search.sugNonStretch': { ar: 'أطقم تدريب', en: 'Tracksuits' },
 }
 
-export const typeLabelsEn: Record<string, string> = { plain: 'Plain', patterned: 'Printed', stretch: 'Stretchy', embroidered: 'Embroidered', sequined: 'Sequined', style: 'Style', harvard: 'Harvard' }
+export const typeLabelsEn: Record<string, string> = {
+  plain: 'Plain', patterned: 'Printed', stretch: 'Sporty', embroidered: 'Premium', sequined: 'Trendy', style: 'Style', harvard: 'Classic',
+  'سادة': 'Plain', 'مزخرف': 'Printed', 'رياضي': 'Sporty', 'مميز': 'Premium', 'لامع': 'Trendy', 'ستايل': 'Style', 'هارفرد': 'Classic',
+  'تيشيرت': 'T-shirt', 'هودي': 'Hoodie', 'طقم': 'Tracksuit', 'طقم تدريب': 'Tracksuit', 'حذاء رياضي': 'Sports shoes', 'حذاء': 'Shoes',
+  'حقيبة': 'Bag', 'شورت': 'Shorts', 'جاكيت': 'Jacket', 'زي رسمي': 'Team kit', 'ملابس رياضية': 'Sportswear', 'إكسسوارات': 'Accessories',
+  tshirt: 'T-shirt', hoodie: 'Hoodie', set: 'Tracksuit', shoes: 'Sports shoes', bag: 'Bag', shorts: 'Shorts',
+}
 
 const typeKeyByAr: Record<string, string> = {
   'سادة': 'plain',

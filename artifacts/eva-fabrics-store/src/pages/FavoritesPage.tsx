@@ -22,11 +22,9 @@ const favoriteCountLabel = (count: number, t: (key: string) => string): string =
 }
 
 const fallbackSuggestions = [
-  { id: 'embroidered', label: 'مطرز' },
-  { id: 'plain', label: 'سادة' },
-  { id: 'stretch', label: 'مطاطي' },
-  { id: 'sequined', label: 'ترتر' },
-  { id: 'patterned', label: 'مزخرف' },
+  { id: 'jerseys', label: 'أزياء' },
+  { id: 'tshirts', label: 'تيشيرتات' },
+  { id: 'shorts', label: 'شورتات' },
 ]
 
 export function FavoritesPage({ products, categories, wishlist, onWish, onAdd }: FavoritesPageProps) {

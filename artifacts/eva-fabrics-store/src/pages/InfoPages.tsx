@@ -552,6 +552,30 @@ export function SizeGuidePage() {
           <p>{t('guide.heroText')}</p>
         </section>
 
+        <section className="size-chart" aria-label={lang === 'en' ? 'Size chart' : 'جدول المقاسات'}>
+          <div className="section-head-tight">
+            <div>
+              <span className="eyebrow"><Ruler size={14} />{lang === 'en' ? 'Size chart' : 'جدول المقاسات'}</span>
+              <h2>{lang === 'en' ? 'Clothing sizes (cm)' : 'مقاسات الملابس (سم)'}</h2>
+            </div>
+          </div>
+          <div className="table-scroll">
+            <table className="size-table">
+              <thead>
+                <tr>
+                  {(lang === 'en' ? ['Size', 'Chest', 'Waist', 'Height'] : ['المقاس', 'الصدر', 'الخصر', 'الطول']).map((heading) => <th key={heading}>{heading}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {[['S', '88–92', '74–78', '160–167'], ['M', '96–100', '82–86', '168–174'], ['L', '104–108', '90–94', '175–181'], ['XL', '112–116', '98–102', '182–188']].map((row) => (
+                  <tr key={row[0]}>{row.map((cell) => <td key={cell}>{cell}</td>)}</tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="muted-note">{lang === 'en' ? 'Measurements in cm. If you are between sizes, choose the larger one.' : 'القياسات بالسنتيمتر. إذا كنت بين مقاسين، اختر الأكبر.'}</p>
+        </section>
+
         <section className="quick-answers" aria-labelledby="quick-answers-title">
           <div className="section-head-tight">
             <div>
