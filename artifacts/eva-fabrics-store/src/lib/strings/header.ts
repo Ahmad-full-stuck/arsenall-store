@@ -49,7 +49,7 @@ export const headerStrings: Record<string, StringEntry> = {
   'foot.colServiceArea': { ar: 'نطاق الخدمة', en: 'Service area' },
   'foot.deliveryRange': { ar: 'نوصل إلى {list} وجميع محافظات العراق.', en: 'We deliver to {list} and every governorate in Iraq.' },
   'foot.listSeparator': { ar: '،', en: ',' },
-  'foot.deliveryFee': { ar: 'توصيل ٥ آلاف دينار', en: 'Delivery 5,000 dinars' },
+  'foot.deliveryFee': { ar: 'توصيل ٥ آلاف دينار', en: 'Delivery fee 5,000 IQD' },
   'foot.pricesNote': { ar: 'الأسعار والمواصفات تُراجع قبل تأكيد الطلب', en: 'Prices and specifications are reviewed before your order is confirmed' },
 
   'home.categoriesAria': { ar: 'أقسام المعرض', en: 'Showroom categories' },
@@ -133,7 +133,7 @@ export const headerStrings: Record<string, StringEntry> = {
   'home.stats.categoriesLabel': { ar: 'أقسام مختارة', en: 'Curated categories' },
   'home.stats.categoriesTrend': { ar: 'لكل مشروع', en: 'For every project' },
   'home.stats.deliveryLabel': { ar: 'محافظة للتوصيل', en: 'Governorates we deliver to' },
-  'home.stats.deliveryTrend': { ar: 'توصيل ٥ آلاف دينار', en: 'Delivery 5,000 dinars' },
+  'home.stats.deliveryTrend': { ar: 'توصيل ٥ آلاف دينار', en: 'Delivery fee 5,000 IQD' },
   'home.stats.cashLabel': { ar: 'دفع عند الاستلام', en: 'Cash on delivery' },
   'home.stats.cashTrend': { ar: 'مريح وآمن', en: 'Easy and secure' },
   'home.stats.percent': { ar: '٪', en: '%' },
